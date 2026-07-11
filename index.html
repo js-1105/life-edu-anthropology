@@ -145,6 +145,8 @@ body.no-clickzones .click-zones{display:none}
 .disc-cloud svg.links{position:absolute;inset:0;width:100%;height:100%}
 .disc-cloud svg.links line{stroke:var(--color-accent-deep);stroke-width:1.4;opacity:.55}
 .disc-cloud .chip{position:absolute;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:700;color:var(--color-primary-dark);background:#fff;border:1.5px solid var(--color-accent);border-radius:999px;padding:.3em .85em;white-space:nowrap;box-shadow:0 3px 12px rgba(134,38,51,.14)}
+.puzzle-stage{width:100%;flex:1;min-height:44vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fff 0%,#FBF3E4 60%,#F6E9D2 100%);border-radius:18px;box-shadow:var(--shadow-strong);padding:2vh}
+.puzzle-stage svg{max-width:70%;max-height:100%;overflow:visible}
 .disc-cloud .core{background:var(--grad-accent);color:#fff;border:none;font-weight:900;padding:.5em 1.2em;box-shadow:0 4px 20px rgba(168,120,46,.45)}
 /* Pale Blue Dot 宇宙頁 */
 .cosmos{position:relative;width:100%;flex:1;min-height:56vh;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,#1a1030 0%,#0b0720 55%,#05030f 100%);box-shadow:var(--shadow-strong)}
@@ -376,11 +378,41 @@ body.no-clickzones .click-zones{display:none}
   <p class="when">要探索人，第一個難題不是答案，而是——這麼多面向，該從哪裡開始？</p>
 </section>
 
-<section class="slide roomy">
+<section class="slide">
   <h2>人學，像一幅拼圖</h2>
-  <p class="lead" style="max-width:none">但它<b>不是</b>那種一眼能看穿、幾十片就拼完的簡單拼圖。</p>
-  <p style="max-width:none">它是<b>複雜版的拼圖</b>——面向繁多、彼此糾纏，甚至比你想像中最難的那幅還要複雜。身體、心理、靈性、關係、時間、文化、歷史……每一片都真實，卻沒有一片能單獨代表整張圖。</p>
-  <blockquote style="max-width:none">剪不斷，理還亂——這麼多面向，我們到底該<b>從哪裡開始探索起</b>？</blockquote>
+  <div class="puzzle-stage" style="min-height:38vh">
+    <svg viewBox="-20 -20 340 340" width="320" height="320">
+      <defs><path id="pieceSimple" d="M0,0 L100,0 L100,36 A14,14 0 1,0 100,64 L100,100 L0,100 L0,64 A14,14 0 1,1 0,36 Z"/></defs>
+      <g fill="var(--color-accent-soft)" stroke="var(--color-accent-deep)" stroke-width="2">
+        <use href="#pieceSimple" x="0" y="0"/><use href="#pieceSimple" x="100" y="0"/><use href="#pieceSimple" x="200" y="0"/>
+        <use href="#pieceSimple" x="0" y="100"/><use href="#pieceSimple" x="100" y="100"/><use href="#pieceSimple" x="200" y="100"/>
+        <use href="#pieceSimple" x="0" y="200"/><use href="#pieceSimple" x="100" y="200"/><use href="#pieceSimple" x="200" y="200"/>
+      </g>
+    </svg>
+  </div>
+  <p class="lead" style="max-width:none;margin-top:.5em">但它<b>不是</b>那種一眼能看穿、幾十片就拼完的簡單拼圖。</p>
+</section>
+
+<section class="slide">
+  <h2>人學，是複雜版的拼圖</h2>
+  <div class="puzzle-stage" style="min-height:38vh">
+    <svg viewBox="-20 -20 340 340" width="320" height="320">
+      <defs><path id="pieceComplex" d="M0,0 L100,0 L100,36 A14,14 0 1,0 100,64 L100,100 L0,100 L0,64 A14,14 0 1,1 0,36 Z"/></defs>
+      <use href="#pieceComplex" x="30" y="20" fill="var(--color-primary)" opacity=".85" transform="rotate(12 80 70)"/>
+      <use href="#pieceComplex" x="140" y="10" fill="var(--color-accent)" opacity=".85" transform="rotate(-18 190 60)"/>
+      <use href="#pieceComplex" x="220" y="60" fill="var(--color-accent-deep)" opacity=".85" transform="rotate(35 270 110)"/>
+      <use href="#pieceComplex" x="10" y="130" fill="var(--color-primary-dark)" opacity=".85" transform="rotate(-8 60 180)"/>
+      <use href="#pieceComplex" x="110" y="150" fill="var(--color-primary)" opacity=".8" transform="rotate(50 160 200)"/>
+      <use href="#pieceComplex" x="200" y="180" fill="var(--color-accent)" opacity=".85" transform="rotate(-25 250 230)"/>
+      <use href="#pieceComplex" x="40" y="240" fill="var(--color-accent-deep)" opacity=".8" transform="rotate(15 90 290)"/>
+      <use href="#pieceComplex" x="150" y="250" fill="var(--color-primary-dark)" opacity=".8" transform="rotate(-40 200 300)"/>
+    </svg>
+  </div>
+  <p style="max-width:none;margin-top:.5em">面向繁多、彼此糾纏，甚至比你想像中最難的那幅還要複雜。身體、心理、靈性、關係、時間、文化、歷史……每一片都真實，卻沒有一片能單獨代表整張圖。</p>
+</section>
+
+<section class="slide">
+  <blockquote style="max-width:none;font-size:clamp(1.8rem,3vw,2.6rem)">剪不斷，理還亂——這麼多面向，我們到底該<b>從哪裡開始探索起</b>？</blockquote>
 </section>
 
 <section class="slide">
