@@ -147,6 +147,9 @@ body.no-clickzones .click-zones{display:none}
 .disc-cloud .chip{position:absolute;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:700;color:var(--color-primary-dark);background:#fff;border:1.5px solid var(--color-accent);border-radius:999px;padding:.3em .85em;white-space:nowrap;box-shadow:0 3px 12px rgba(134,38,51,.14)}
 .puzzle-stage{width:100%;flex:1;min-height:44vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#fff 0%,#FBF3E4 60%,#F6E9D2 100%);border-radius:18px;box-shadow:var(--shadow-strong);padding:2vh}
 .puzzle-stage svg{max-width:70%;max-height:100%;overflow:visible}
+.context-frame{position:relative;width:100%;flex:1;min-height:48vh;display:flex;align-items:center;justify-content:center;background:var(--color-bg);border:3px dashed var(--color-accent-deep);border-radius:22px;padding:3vh 2vw;margin-top:1vh}
+.context-frame img{max-width:56%;max-height:100%;object-fit:contain}
+.context-label{position:absolute;top:-.9em;left:2.4em;background:var(--color-accent-deep);color:#fff;font-family:var(--font-serif);font-weight:900;font-size:clamp(1.3rem,1.8vw,1.9rem);padding:.25em .9em;border-radius:999px;box-shadow:var(--shadow-soft)}
 .disc-cloud .core{background:var(--grad-accent);color:#fff;border:none;font-weight:900;padding:.5em 1.2em;box-shadow:0 4px 20px rgba(168,120,46,.45)}
 /* Pale Blue Dot 宇宙頁 */
 .cosmos{position:relative;width:100%;flex:1;min-height:56vh;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,#1a1030 0%,#0b0720 55%,#05030f 100%);box-shadow:var(--shadow-strong)}
@@ -439,7 +442,7 @@ body.no-clickzones .click-zones{display:none}
 <section class="slide section-divider">
   <div class="num">肆</div>
   <h1>人的完整圖像：<br>四個向度</h1>
-  <p class="when">傳統形上學提出「結構、關係、過程」三個向度來理解存有，孫效智加上「脈絡」。四個向度，把人看全。</p>
+  <p class="when">傳統存有學提出「結構、關係、過程」三個向度來理解存有，孫效智加上「脈絡」。四個向度，把人看全。</p>
 </section>
 
 <section class="slide">
@@ -454,18 +457,10 @@ body.no-clickzones .click-zones{display:none}
 </section>
 
 <section class="slide">
-  <h2>完整人學的三向度：彼此交疊</h2>
+  <h2>個體存有學三向度</h2>
   <div class="grid2" style="align-items:center;gap:2.6vw">
-    <div class="relwrap">
-      <svg viewBox="0 0 360 340" style="width:100%;height:auto;max-height:70vh" xmlns="http://www.w3.org/2000/svg" aria-label="結構、關係、過程三個交疊的圓">
-        <circle cx="180" cy="120" r="105" fill="rgba(134,38,51,.28)" stroke="#862633" stroke-width="2.5"/>
-        <circle cx="120" cy="220" r="105" fill="rgba(168,120,46,.28)" stroke="#A8782E" stroke-width="2.5"/>
-        <circle cx="240" cy="220" r="105" fill="rgba(30,95,116,.26)" stroke="#1E5F74" stroke-width="2.5"/>
-        <text x="180" y="72" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="27" fill="#5C1A23">結構</text>
-        <text x="86" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="27" fill="#6b4a1c">關係</text>
-        <text x="274" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="27" fill="#164a5c">過程</text>
-        <text x="180" y="200" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="20" fill="#3d1016">完整的人</text>
-      </svg>
+    <div class="relwrap" style="text-align:center">
+      <img src="images/dim3-circles.png" width="422" height="310" alt="結構、關係、過程三個交疊的圓，中心為完整的人" style="width:100%;height:auto;max-height:60vh;object-fit:contain">
     </div>
     <div>
       <p class="lead" style="max-width:none">結構、關係、過程——這三個向度不是分開的欄位，而是<b>同一個人</b>的三種看法，彼此交疊。</p>
@@ -482,6 +477,14 @@ body.no-clickzones .click-zones{display:none}
     <div class="card"><h3>靈</h3><p>統整身心、指向意義與超越的主體性——那個追問「我為何存在」、朝向圓滿的「我」。</p></div>
   </div>
   <p class="muted" style="text-align:center;max-width:none;margin-top:.8em">你們在哲學人學裡辯過的身心關係、在靈性修養裡體驗過的覺察主體——都在這一個向度裡交會。</p>
+</section>
+
+<section class="slide">
+  <h2>身心靈，是「結構」向度的具體展開</h2>
+  <div class="relwrap" style="text-align:center">
+    <img src="images/dim-structure-detail.png" width="643" height="301" alt="身心靈圓餅圖，並標示其在結構、關係、過程三向度圖中的位置" style="width:auto;max-width:88%;max-height:60vh;object-fit:contain">
+  </div>
+  <p class="muted" style="text-align:center;max-width:none;margin-top:.6em">身、心、靈統整起來，就是「結構」向度所要問的：人自身是由什麼組成的。</p>
 </section>
 
 <section class="slide">
@@ -515,6 +518,14 @@ body.no-clickzones .click-zones{display:none}
 </section>
 
 <section class="slide">
+  <h2>五重關係，是「關係」向度的完整圖像</h2>
+  <div class="relwrap" style="text-align:center">
+    <img src="images/dim-relations-detail.png" width="603" height="290" alt="人與自己、他人、社會、自然、超越界的五重關係，並標示其在三向度圖中的位置" style="width:auto;max-width:92%;max-height:60vh;object-fit:contain">
+  </div>
+  <p class="muted" style="text-align:center;max-width:none;margin-top:.6em">從自己到超越界，這五重關係合起來，就是「關係」向度所要問的：人在關係中如何成為自己。</p>
+</section>
+
+<section class="slide">
   <h2>向度三 · 人的過程性：在時間中的人</h2>
   <p class="lead" style="max-width:none">人不是靜止的照片，而是一段<b>展開中的旅程</b>。同一個人，在不同階段有不同的樣貌與課題。</p>
   <div class="proc-row">
@@ -525,6 +536,14 @@ body.no-clickzones .click-zones{display:none}
 </section>
 
 <section class="slide">
+  <h2>生命階段與生活六面向，是「過程」向度的展開</h2>
+  <div class="relwrap" style="text-align:center">
+    <img src="images/dim-process-detail.png" width="681" height="353" alt="生命四階段、生活四範疇與人生六面向食衣住行育樂，並標示其在三向度圖中的位置" style="width:auto;max-width:94%;max-height:60vh;object-fit:contain">
+  </div>
+  <p class="muted" style="text-align:center;max-width:none;margin-top:.6em">從兒少到晚年，從食衣住行到育樂——這就是「過程」向度所要問的：人在時間中如何展開。</p>
+</section>
+
+<section class="slide">
   <h2>向度四 · 人的生存脈絡</h2>
   <p class="lead" style="max-width:none">同一個人，放進不同的脈絡，會活成不同的樣子。脈絡，是理解一個人不可略過的背景。</p>
   <div class="grid2" style="flex:none;gap:2.6vw;margin-top:.1em">
@@ -532,6 +551,15 @@ body.no-clickzones .click-zones{display:none}
     <div class="card"><h3>無形的文化座標</h3><p style="max-width:none">語言、文化、政治、社會、歷史——它們在我們出生前就已就位，塑造我們如何看世界。</p></div>
   </div>
   <p class="muted" style="max-width:none;margin-top:.3em">結構、關係、過程、脈絡——四個向度合起來，才足以描繪一個完整、不能被拆開來算的人。</p>
+</section>
+
+<section class="slide">
+  <h2>完整人學四向度</h2>
+  <p class="lead" style="max-width:none">個體不是懸空存在的——把「結構、關係、過程」這個個體存有學的圖像，整個放進「脈絡」之中，才是完整的人學圖像。</p>
+  <div class="context-frame">
+    <div class="context-label">脈絡</div>
+    <img src="images/dim3-circles.png" width="422" height="310" alt="結構、關係、過程三個交疊的圓，套疊在脈絡方框之中，構成完整人學四向度">
+  </div>
 </section>
 
 <!-- ===================== 伍　回到人生大哉問 ===================== -->
