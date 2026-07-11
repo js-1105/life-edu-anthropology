@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>單元五　人學探索 | 簡報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-primary:#862633; --color-primary-dark:#5C1A23;
+  --color-accent:#D4AF37; --color-accent-deep:#A8782E; --color-accent-soft:#E8D080;
+  --color-bg:#FAF7F2; --color-text:#1A1A1A; --color-muted:#6B6B6B; --color-line:#E5DDD0;
+  --grad-accent:linear-gradient(90deg,var(--color-accent-deep),var(--color-accent) 45%,var(--color-accent-soft));
+  --grad-royal:linear-gradient(135deg,#8E2A38 0%,var(--color-primary-dark) 55%,#3d1016 100%);
+  --shadow-soft:0 4px 20px rgba(134,38,51,.08); --shadow-strong:0 12px 40px rgba(134,38,51,.18);
+  --font-sans:"Noto Sans TC","Microsoft JhengHei","微軟正黑體","PingFang TC",sans-serif;
+  --font-serif:"Noto Serif TC","Songti TC","PingFang TC",serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+html{background:var(--color-bg)}
+::backdrop{background:var(--color-bg)}
+body{font-family:var(--font-sans);font-size:20px;line-height:1.78;color:var(--color-text);background:var(--color-bg);overflow:hidden}
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;width:100%;height:100%;padding:5vh 6vw;opacity:0;visibility:hidden;transform:translateX(40px);transition:opacity .5s ease,transform .5s ease,visibility 0s linear .5s;display:flex;flex-direction:column;justify-content:center;
+  background:var(--color-bg) radial-gradient(circle at 1px 1px,rgba(134,38,51,.05) 1px,transparent 0) 0 0/22px 22px;}
+.slide.active{opacity:1;visibility:visible;transform:translateX(0);transition:opacity .5s ease,transform .5s ease,visibility 0s}
+.slide.prev{transform:translateX(-40px)}
+.slide.roomy{--gap:.55em}
+.slide>*{position:relative;z-index:1}
+.fitwrap{position:relative;z-index:1;width:100%;height:100%;display:flex;flex-direction:column;justify-content:var(--jc,center);align-items:var(--ai,stretch);gap:var(--gap,0);transform-origin:center center}
+.slide.roomy h1{font-size:clamp(3rem,6.2vw,5.6rem)}
+.slide.roomy h2{font-size:clamp(2.3rem,4.4vw,3.7rem)}
+.slide.roomy p,.slide.roomy .lead{font-size:clamp(1.55rem,2.4vw,2.15rem)}
+.slide.roomy blockquote{font-size:clamp(1.7rem,2.8vw,2.4rem)}
+.slide.roomy ul.fl li{font-size:clamp(1.5rem,2.3vw,2rem)}
+.slide.roomy .big-q{font-size:clamp(2rem,4vw,3.2rem)}
+h1{font-family:var(--font-serif);font-size:clamp(2.6rem,5.2vw,4.8rem);font-weight:900;letter-spacing:.02em;line-height:1.3;color:var(--color-primary);margin-bottom:.4em}
+h2{font-family:var(--font-serif);font-size:clamp(2.2rem,4.2vw,3.6rem);font-weight:700;line-height:1.4;color:var(--color-primary);margin-bottom:.7em;padding-bottom:.35em;border-bottom:3px solid var(--color-accent);display:inline-block}
+h3{font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:600;color:var(--color-text);margin:.8em 0 .4em}
+p{font-size:clamp(1.35rem,2vw,1.85rem);margin-bottom:.7em;max-width:38em}
+.lead{font-size:clamp(1.55rem,2.5vw,2.2rem);color:var(--color-muted);font-weight:300}
+.muted{color:var(--color-muted)} .accent{color:var(--color-primary);font-weight:700}
+.src{font-size:.95rem;color:var(--color-muted);font-style:italic;margin-top:.4em;max-width:46em}
+blockquote{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.5rem,2.4vw,2.1rem);border-left:4px solid var(--color-accent);padding:.5em 1.2em;margin:.8em 0;color:#4a3b1e;background:rgba(212,175,55,.08);max-width:36em}
+.slide.sec-tint{background-color:var(--color-bg);
+  background-image:
+    radial-gradient(circle at 1px 1px,rgba(134,38,51,.05) 1px,transparent 1.5px),
+    radial-gradient(940px 620px at 95% 0%,rgba(212,175,55,.10),transparent 60%),
+    linear-gradient(155deg,var(--sec-a,#FAF7F2) 0%,var(--sec-b,#EFE7D9) 118%);
+  background-size:24px 24px,100% 100%,100% 100%;}
+.slide.sec-1{--sec-a:#FCF5F3;--sec-b:#EFDCD9}
+.slide.sec-2{--sec-a:#FCF7EA;--sec-b:#F0E2C5}
+.slide.sec-3{--sec-a:#EFF6F1;--sec-b:#D6E6DC}
+.slide.sec-4{--sec-a:#F6F1F8;--sec-b:#E2D6EA}
+.slide.sec-5{--sec-a:#EFF3F8;--sec-b:#D8E2EE}
+.slide.sec-6{--sec-a:#FBF1EA;--sec-b:#F0DDCB}
+.slide.sec-tint::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--grad-accent);opacity:.6;z-index:0}
+.slide.sec-tint::after{content:attr(data-chap);position:absolute;top:-.14em;right:.06em;font-family:var(--font-serif);font-weight:900;line-height:1;font-size:46vh;color:var(--color-primary);opacity:.05;z-index:0;pointer-events:none;user-select:none}
+.section-divider{--ai:flex-start;background:var(--grad-royal);color:#fff;overflow:hidden}
+.section-divider::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 620px at 70% 40%,rgba(212,175,55,.18),transparent 60%),radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 0);background-size:auto,28px 28px;z-index:0}
+.section-divider .stage{font-size:clamp(1.1rem,2vw,1.5rem);color:var(--color-accent-soft);font-weight:700;letter-spacing:.3em;margin-bottom:.1em}
+.section-divider .num{font-family:var(--font-serif);font-size:clamp(4rem,13vw,10rem);font-weight:900;line-height:1;background:var(--grad-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 4px 30px rgba(212,175,55,.3)}
+.section-divider h1{margin-top:.05em;color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.25)}
+.section-divider .when{color:rgba(255,255,255,.82);margin-top:.5em;letter-spacing:.05em;max-width:34em}
+.slide.cover{background:var(--grad-royal);color:#fff;text-align:center;--ai:center;overflow:hidden}
+.slide.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 460px at 50% 20%,rgba(212,175,55,.12),transparent 68%),linear-gradient(180deg,rgba(40,8,13,.04),rgba(40,8,13,.28));z-index:1}
+.slide.cover h1{color:#fff;font-size:clamp(2.6rem,6vw,5.2rem)} .slide.cover .lead{color:rgba(255,255,255,.9)}
+.slide.cover .stage{color:var(--color-accent-soft);letter-spacing:.35em;font-weight:700}
+.slide.cover .ornament{width:90px;height:4px;background:var(--grad-accent);margin:1.1em auto;border-radius:2px}
+.slide.cover .meta{margin-top:2em;font-size:1rem;color:rgba(255,255,255,.74);letter-spacing:.08em}
+.cover .stage,.cover h1,.cover .ornament,.cover .lead,.cover .cover-cta,.cover .meta,.cover .back-home-btn{position:relative;z-index:2}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3vw;align-items:center;flex:1;width:100%}
+.toc-themes{list-style:none;max-width:none;width:100%;margin:.5em 0 0;padding:0}
+.toc-themes li{display:flex;align-items:baseline;gap:.8em;padding:.5em .2em;border-bottom:1px dashed var(--color-line);font-size:clamp(1.2rem,1.9vw,1.75rem);line-height:1.45}
+.toc-themes .tn{font-family:var(--font-serif);font-weight:900;color:var(--color-accent);font-size:1.3em;flex:none;min-width:1.5em;text-align:center}
+.toc-themes b{color:var(--color-primary)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;width:100%}
+.card{background:#fff;padding:1.3em 1.4em;border-radius:14px;box-shadow:var(--shadow-soft);border-top:4px solid var(--color-accent)}
+.card h3{margin-top:0;color:var(--color-primary)}
+.card.compact p{font-size:1.2rem;margin-bottom:.3em}
+.tag{display:inline-block;background:var(--color-primary);color:#fff;padding:.25em .9em;border-radius:999px;font-size:.85rem;font-weight:600;letter-spacing:.08em;margin-bottom:.6em}
+ul.fl{list-style:none} ul.fl li{position:relative;padding:.5em 0 .5em 1.6em;font-size:clamp(1.25rem,1.9vw,1.7rem);border-bottom:1px dashed var(--color-line)}
+ul.fl li::before{content:"";position:absolute;left:0;top:1.05em;width:.7em;height:.7em;background:var(--color-accent);border-radius:50%}
+.slide.dense ul.fl li{font-size:clamp(1.06rem,1.5vw,1.4rem);padding-top:.36em;padding-bottom:.36em;line-height:1.4}
+.slide.dense ul.fl li::before{top:.9em}
+.practice{background:linear-gradient(135deg,rgba(212,175,55,.13),rgba(212,175,55,.03));border:2px dashed var(--color-accent);padding:1.2em 1.5em;border-radius:16px;margin-top:.5em}
+.practice .label{display:inline-block;background:var(--color-primary);color:#fff;padding:.25em .9em;border-radius:999px;font-size:.85rem;font-weight:600;margin-bottom:.5em;letter-spacing:.1em}
+.big-q{font-family:var(--font-serif);font-size:clamp(1.5rem,3.2vw,2.6rem);font-weight:700;color:var(--color-primary);line-height:1.5}
+.gimg{display:block;border-radius:16px;box-shadow:var(--shadow-strong);border:1px solid rgba(212,175,55,.4);object-fit:cover}
+table.tbl{width:100%;border-collapse:collapse;font-size:clamp(1.5rem,1.6vw,1.58rem);background:rgba(255,255,255,.7);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-soft)}
+table.tbl th,table.tbl td{padding:.72em .95em;text-align:left;border-bottom:1px solid var(--color-line);line-height:1.45;vertical-align:top}
+table.tbl thead th{background:var(--color-primary);color:#fff;font-family:var(--font-serif);font-weight:700;border-bottom:none}
+table.tbl tbody tr:nth-child(even){background:rgba(212,175,55,.06)}
+table.tbl .lv{font-family:var(--font-serif);font-weight:700;color:var(--color-primary);white-space:nowrap}
+.feature-list{list-style:none;counter-reset:li-counter}
+.feature-list li{position:relative;padding:.5em 0 .5em 2.3em;font-size:clamp(1.5rem,1.6vw,1.66rem);border-bottom:1px dashed var(--color-line);line-height:1.5}
+.feature-list li::before{content:counter(li-counter);counter-increment:li-counter;position:absolute;left:0;top:.6em;width:1.6em;height:1.6em;background:var(--color-accent);color:var(--color-primary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8em}
+.contrast2{display:grid;grid-template-columns:1fr 1fr;gap:2vw;width:100%;margin-top:.4em}
+.contrast2 .card h3{font-size:clamp(1.4rem,2vw,1.95rem)}
+.contrast2 .card p{font-size:clamp(1.5rem,1.7vw,1.62rem);line-height:1.55}
+.progress-bar{position:fixed;bottom:0;left:0;height:4px;background:var(--color-accent);width:0;transition:width .4s;z-index:100}
+.page-indicator{position:fixed;bottom:1.4em;right:2em;font-size:.85rem;color:var(--color-muted);font-variant-numeric:tabular-nums;z-index:100;background:rgba(255,255,255,.8);padding:.25em .8em;border-radius:999px;backdrop-filter:blur(8px)}
+.nav-arrows{position:fixed;bottom:1.4em;left:2em;display:flex;gap:.5em;z-index:100}
+.nav-arrows button,.fs-toggle{width:2.3em;height:2.3em;border:none;background:rgba(134,38,51,.1);color:var(--color-primary);border-radius:50%;cursor:pointer;font-size:1.15rem;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:inherit}
+.nav-arrows button:hover,.fs-toggle:hover{background:var(--color-primary);color:#fff;transform:scale(1.1)}
+.fs-toggle{position:fixed;bottom:1.4em;right:5.5em;z-index:100}
+.click-zones{position:fixed;inset:0;display:flex;pointer-events:none;z-index:50}
+.click-zone{flex:1;pointer-events:auto;cursor:pointer}
+body.no-clickzones .click-zones{display:none}
+.cover-cta{position:relative;z-index:60;margin-top:2em;background:var(--color-accent);color:var(--color-primary-dark);border:none;padding:1em 2.4em;font-size:1.05rem;font-weight:700;border-radius:999px;cursor:pointer;font-family:inherit;letter-spacing:.1em;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
+.cover-cta:hover{transform:translateY(-2px)}
+.back-home-btn{position:relative;z-index:60;margin-top:1.6em;background:transparent;color:var(--color-accent);border:2px solid var(--color-accent);padding:.7em 1.8em;font-size:.95rem;font-weight:600;border-radius:999px;cursor:pointer;font-family:inherit;letter-spacing:.1em;transition:all .2s}
+.back-home-btn:hover{background:var(--color-accent);color:var(--color-primary-dark);transform:translateY(-2px)}
+.closing{text-align:center;background:var(--grad-royal);color:#fff;--ai:center;overflow:hidden}
+.closing::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 480px at 50% 30%,rgba(212,175,55,.18),transparent 62%);z-index:0}
+.closing .ending-line{font-family:var(--font-serif);font-weight:700;color:#fff;font-size:clamp(2.6rem,6.4vw,5.2rem);letter-spacing:.1em;text-shadow:0 2px 30px rgba(0,0,0,.3);position:relative;z-index:2;line-height:1.3}
+.closing .ending-sub{position:relative;z-index:2;color:rgba(255,255,255,.88);font-size:clamp(1.3rem,2vw,1.85rem);max-width:32em;margin:.6em auto 0;line-height:1.75}
+.closing .ending-ornament{width:clamp(90px,14vw,200px);height:3px;margin:.9em auto;background:var(--grad-accent);border-radius:999px;box-shadow:0 0 18px rgba(212,175,55,.55);position:relative;z-index:2}
+.closing .signature{font-family:var(--font-serif);font-size:clamp(1.2rem,2vw,1.7rem);letter-spacing:.2em;color:var(--color-accent-soft);position:relative;z-index:2;margin-top:.5em}
+.closing .back-home-btn{position:relative;z-index:2}
+.toast{position:fixed;top:1.5em;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.85);color:#fff;padding:.6em 1.4em;border-radius:999px;font-size:.9rem;z-index:200;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+@media(max-width:768px){.grid2,.grid3,.contrast2{grid-template-columns:1fr}}
+/* 互動：六組 QR ＋ 即時投稿頁 */
+.qr-intro{max-width:none;margin:.25em 0 .55em;font-size:clamp(1.3rem,1.9vw,1.85rem);line-height:1.5;color:var(--color-text)}
+.qr-stage{display:flex;justify-content:center;align-items:center;gap:1.6vw;flex:1;min-height:0;width:100%}
+.qr-card{flex:1 1 0;max-width:240px;background:#fff;border-radius:20px;border-top:9px solid var(--c,#862633);box-shadow:var(--shadow-strong);padding:1.1em 1em 1.2em;display:flex;flex-direction:column;align-items:center;gap:.7em}
+.qr-box{width:100%;max-width:200px;aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center}
+.qr-box img,.qr-box canvas{width:100%!important;height:100%!important;display:block}
+.qr-cap{font-family:var(--font-serif);font-weight:900;color:var(--c,#862633);font-size:clamp(1.5rem,2.05vw,2.05rem);text-align:center;line-height:1.12}
+.gpage h2 .g-dot{display:inline-block;width:.62em;height:.62em;border-radius:50%;background:var(--c);margin-right:.45em;vertical-align:middle}
+.gpage .gbox{flex:1;min-height:0;overflow:auto;background:rgba(255,255,255,.85);border:2px solid var(--color-line);border-radius:14px;padding:.8em .9em;display:flex;flex-direction:column;gap:.6em;width:100%;margin-top:.3em}
+.gitem{background:#fff;border-left:5px solid var(--c,#862633);border-radius:8px;box-shadow:var(--shadow-soft);padding:.6em .9em;font-size:clamp(1.55rem,1.9vw,1.85rem);line-height:1.55;white-space:pre-wrap}
+.gbox .empty-hint{margin:auto;font-size:clamp(1.55rem,1.9vw,1.75rem);color:var(--color-muted);font-style:italic;text-align:center;max-width:22em}
+#fbStatus{font-weight:700}
+/* 學員精華摘錄 */
+.quote-wall{display:flex;flex-direction:column;gap:.7em;width:100%;margin-top:.2em}
+.qw{background:linear-gradient(120deg,rgba(255,255,255,.9),rgba(255,255,255,.66));border:1px solid var(--color-line);border-left:6px solid var(--color-accent);border-radius:14px;box-shadow:var(--shadow-soft);padding:.7em 1.1em;font-family:var(--font-serif);font-size:clamp(1.2rem,1.75vw,1.62rem);line-height:1.55;color:#3d2f18}
+.qw .by{display:block;font-family:var(--font-sans);font-style:normal;font-size:.8em;color:var(--color-muted);margin-top:.2em}
+/* 學科星群（所有學科都有人學意涵） */
+.disc-cloud{position:relative;width:100%;flex:1;min-height:52vh;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 46%,#2a1a3e 0%,#1b1030 42%,#0c0720 100%);box-shadow:var(--shadow-strong)}
+.disc-cloud .chip{position:absolute;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:700;color:#f3e6c8;background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.4);border-radius:999px;padding:.3em .85em;white-space:nowrap;box-shadow:0 0 18px rgba(212,175,55,.12)}
+.disc-cloud .core{background:var(--grad-accent);color:#3d1016;border:none;font-weight:900;padding:.5em 1.2em;box-shadow:0 0 32px rgba(212,175,55,.6)}
+/* Pale Blue Dot 宇宙頁 */
+.cosmos{position:relative;width:100%;flex:1;min-height:56vh;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,#1a1030 0%,#0b0720 55%,#05030f 100%);box-shadow:var(--shadow-strong)}
+.cosmos .beam{position:absolute;top:-8%;left:64%;width:34%;height:120%;background:linear-gradient(180deg,rgba(220,180,120,.22),rgba(220,180,120,0));transform:rotate(14deg);filter:blur(6px)}
+.cosmos .dot{position:absolute;top:52%;left:33%;width:9px;height:9px;border-radius:50%;background:#9ec9ff;box-shadow:0 0 14px 4px rgba(158,201,255,.75)}
+.cosmos .dotlab{position:absolute;top:56%;left:31%;color:#cfe2ff;font-family:var(--font-serif);font-size:clamp(1rem,1.4vw,1.35rem);letter-spacing:.1em}
+.cosmos .dotlab::before{content:"";position:absolute;left:14px;top:-14px;width:34px;height:1px;background:rgba(207,226,255,.6);transform:rotate(-38deg);transform-origin:left}
+.cosmos .cq{position:absolute;left:5%;bottom:7%;right:44%;color:#eadfff;font-family:var(--font-serif);font-style:italic;font-size:clamp(1.15rem,1.7vw,1.6rem);line-height:1.55;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.cosmos .star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.7}
+/* 定義卡（人學的定義） */
+.defbox{background:linear-gradient(135deg,rgba(212,175,55,.14),rgba(255,255,255,.5));border:2px solid var(--color-accent);border-radius:18px;padding:1em 1.4em;box-shadow:var(--shadow-soft);font-family:var(--font-serif);font-size:clamp(1.55rem,2.5vw,2.25rem);line-height:1.6;color:#3d2f18;max-width:none}
+.defbox b{color:var(--color-primary)}
+/* 四維向度卡 */
+.dim4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw;width:100%;margin-top:.3em}
+.dim4 .card{border-top-color:var(--color-primary)}
+.dim4 .card .k{font-family:var(--font-serif);font-weight:900;color:var(--color-accent-deep);font-size:clamp(1.4rem,2vw,2rem);line-height:1}
+.dim4 .card h3{margin:.2em 0 .3em;font-size:clamp(1.3rem,1.8vw,1.8rem)}
+.dim4 .card p{font-size:clamp(1.5rem,1.55vw,1.6rem);color:var(--color-muted);margin:0;line-height:1.5}
+/* 關係性放射環 */
+.relwrap{display:flex;justify-content:center;align-items:center;flex:1;width:100%}
+/* 過程性 */
+.proc-row{display:flex;gap:1.6vw;width:100%;margin-top:.2em;flex-wrap:wrap}
+.proc-col{flex:1 1 0;min-width:12em;background:#fff;border-radius:14px;box-shadow:var(--shadow-soft);border-top:5px solid var(--color-accent);padding:1em 1.2em}
+.proc-col h3{margin:0 0 .3em;color:var(--color-primary);font-size:clamp(1.3rem,1.8vw,1.75rem)}
+.proc-col .stg{display:flex;flex-wrap:wrap;gap:.5em;margin-top:.2em}
+.proc-col .stg span{background:rgba(134,38,51,.08);border:1px solid rgba(134,38,51,.18);border-radius:999px;padding:.28em .85em;font-weight:700;color:var(--color-primary);font-size:clamp(1.05rem,1.45vw,1.45rem)}
+</style>
+<script src="fbconfig.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ===================== 封面 ===================== -->
+<section class="slide cover active">
+  <div class="stage">單元五　·　五大素養的基礎</div>
+  <h1>人學探索</h1>
+  <div class="ornament"></div>
+  <p class="lead">在問「人為何而活、該怎樣活、如何活出」之前，先回到那個最根本的提問——<b style="color:#fff">人，是什麼？</b></p>
+  <button class="cover-cta kicker" onclick="startPresentation()">進入全螢幕．開始上課</button>
+  <div class="meta credit">孫效智　|　臺大生命教育研發育成中心　第十期師資培育學分班　|　台北班　Day 5</div>
+  <button class="back-home-btn kicker" style="margin-top:.6em;font-size:.72em;opacity:.55;background:none;border:none;text-decoration:underline;cursor:pointer;padding:0" onclick="goToSlide(document.querySelectorAll('.slide').length)">跳到最後一頁</button>
+</section>
+
+<!-- 目錄 -->
+<section class="slide roomy">
+  <h2>今天的地圖：從一個命題到一張完整的人像</h2>
+  <p class="lead" style="max-width:none">這一週談了人為何而活、該怎樣活、如何活出。今天走到最底層的地基——<b>人是什麼</b>。</p>
+  <ul class="toc-themes">
+    <li><span class="tn">壹</span><span><b>從課前作業出發</b>　康德的一個命題：人學探索與人生根本問題，相互為用</span></li>
+    <li><span class="tn">貳</span><span><b>人，為何要探索「人」自己</b>　從追求知識，到那顆淡藍色的小點</span></li>
+    <li><span class="tn">參</span><span><b>人學，是什麼</b>　一幅剪不斷、理還亂的拼圖，注定成為哲學</span></li>
+    <li><span class="tn">肆</span><span><b>人的完整圖像</b>　結構、關係、過程、脈絡——四個向度</span></li>
+    <li><span class="tn">伍</span><span><b>回到人生大哉問</b>　人學，是幸福人生五把鑰匙的地基</span></li>
+  </ul>
+</section>
+
+<!-- ===================== 壹　從課前作業出發 ===================== -->
+<section class="slide section-divider">
+  <div class="num">壹</div>
+  <h1>從課前作業出發</h1>
+  <p class="when">你們課前已思考過一個命題。我們就從你們的思考開始，一起把它接到今天的主題上。</p>
+</section>
+
+<!-- 課前作業回顧 -->
+<section class="slide roomy">
+  <h2>課前你們思考的那個命題</h2>
+  <div class="practice" style="margin-top:.1em">
+    <span class="label kicker">課前作業</span>
+    <p style="margin:.2em 0 0;max-width:none;font-size:clamp(1.55rem,2.4vw,2.15rem)">請根據「<b>人學概論</b>」與「<b>哲學人學</b>」所學，印證康德的說法——<br><b style="color:var(--color-primary)">「人學探索」與「人生根本問題」，兩者相互為用。</b></p>
+  </div>
+  <p style="max-width:none;margin-top:.5em">康德把哲學收攏成幾個根本問題：我能知道什麼、我應當做什麼、我可以希望什麼——最後他說，這一切其實都可歸結到一個問題：<b>「人是什麼？」</b></p>
+  <p class="src">康德《邏輯學講義》（Jäsche Logic, 1800）：形上學、道德、宗教分別答覆前三問，而「歸根究柢，這一切都可算作人類學（人學）」——因為前三問都關聯著最後這一問。</p>
+</section>
+
+<!-- QR 6組上傳 -->
+<section class="slide">
+  <h2>先分六組，交換你們的印證</h2>
+  <p class="lead qr-intro" style="text-align:left">沿用平時的分組。六組各派一位掃自己的 QR，把你們這一組討論出的<b>印證要點</b>打上來（可分多次送出）——它會即時出現在投影幕上你們這一組的頁面。</p>
+  <div class="qr-stage">
+    <div class="qr-card" style="--c:#862633"><div class="qr-box" data-tp="1"></div><div class="qr-cap">第1組</div></div>
+    <div class="qr-card" style="--c:#A8782E"><div class="qr-box" data-tp="2"></div><div class="qr-cap">第2組</div></div>
+    <div class="qr-card" style="--c:#1E5F74"><div class="qr-box" data-tp="3"></div><div class="qr-cap">第3組</div></div>
+    <div class="qr-card" style="--c:#6B5635"><div class="qr-box" data-tp="4"></div><div class="qr-cap">第4組</div></div>
+    <div class="qr-card" style="--c:#5C1A23"><div class="qr-box" data-tp="5"></div><div class="qr-cap">第5組</div></div>
+    <div class="qr-card" style="--c:#3E7D5A"><div class="qr-box" data-tp="6"></div><div class="qr-cap">第6組</div></div>
+  </div>
+  <p class="src" id="fbStatus" style="text-align:center">連線狀態</p>
+</section>
+
+<!-- 六組即時頁 -->
+<section class="slide gpage" style="--c:#862633"><h2><span class="g-dot"></span>第1組 · 相互為用的印證</h2><div class="gbox" id="pg1"></div></section>
+<section class="slide gpage" style="--c:#A8782E"><h2><span class="g-dot"></span>第2組 · 相互為用的印證</h2><div class="gbox" id="pg2"></div></section>
+<section class="slide gpage" style="--c:#1E5F74"><h2><span class="g-dot"></span>第3組 · 相互為用的印證</h2><div class="gbox" id="pg3"></div></section>
+<section class="slide gpage" style="--c:#6B5635"><h2><span class="g-dot"></span>第4組 · 相互為用的印證</h2><div class="gbox" id="pg4"></div></section>
+<section class="slide gpage" style="--c:#5C1A23"><h2><span class="g-dot"></span>第5組 · 相互為用的印證</h2><div class="gbox" id="pg5"></div></section>
+<section class="slide gpage" style="--c:#3E7D5A"><h2><span class="g-dot"></span>第6組 · 相互為用的印證</h2><div class="gbox" id="pg6"></div></section>
+
+<!-- 學員精華摘錄 -->
+<section class="slide">
+  <h2>你們寫得很好——幾段我特別想分享</h2>
+  <p class="lead" style="max-width:none">課前的作業裡有許多深刻的印證。這些話，其實已經自己走到了今天的主題：</p>
+  <div class="quote-wall">
+    <div class="qw">「當我越了解人的情緒、價值觀、關係與選擇，越能理解自己真正重視什麼；而當我開始思考人生的意義，又更想去理解人為什麼會有這些情緒。」<span class="by byline">——這正是「相互為用」：懂人，幫我懂人生；追問人生，又回頭讓我更懂人。</span></div>
+    <div class="qw">「因為親自去實踐了不逃避受苦的生命抉擇，我才真正懂了人學裡談的：人在苦難中能展現出更高的主體性。」<span class="by byline">——不只「懂了才去活」，而是「活過了，才真的懂」；實踐，反過來加深理解。</span></div>
+    <div class="qw">「我不是腦裡的化學反應，不只是基因寫好的程式，不只是社會發給我的角色——我是一個不能被拆開來算的整體。」<span class="by byline">——一句話說中今天的核心命題：人作為整體，不等於各部分的總和。</span></div>
+  </div>
+</section>
+
+<!-- 教授觀點：相互為用 -->
+<section class="slide">
+  <h2>我的觀點：這是一條雙向的路</h2>
+  <p class="lead" style="max-width:none">康德的洞見，也是這門課的骨架——<b>人學探索是人生三問的基礎，而三問又反過來深化人學</b>：</p>
+  <ul class="fl" style="margin-top:.1em">
+    <li>要探討人生最根本的問題，就<b>必須先瞭解「人是什麼」</b>。</li>
+    <li>反過來，愈深入探究人為何而活、該怎樣活、如何活出，也就<b>愈瞭解人性</b>。</li>
+    <li>所以兩者不是先後兩段，而是<b>一體的兩面、彼此照亮</b>。</li>
+  </ul>
+  <p class="muted" style="max-width:none">這也是為什麼「人學探索」放在整週的最後——它不是形式的前提，而是走過一週後重新浮現的<b>實質基礎</b>。</p>
+</section>
+
+<!-- 澄清：人生三問 vs 康德四問 vs 我是誰 -->
+<section class="slide">
+  <h2>順帶澄清一個最容易混淆的地方</h2>
+  <p class="lead" style="max-width:none">批改時我發現，有兩個概念常被彼此套用。趁這裡把它分清楚：</p>
+  <div class="contrast2" style="margin-top:.1em">
+    <div class="card"><h3 style="color:var(--color-primary)">本課程的「人生三問」</h3>
+      <p style="margin-bottom:.2em"><b>① 為何而活</b>（終極關懷）<br><b>② 該怎樣活</b>（價值思辨）<br><b>③ 如何活出應活的人生</b>（靈性修養）</p>
+      <p class="muted cap" style="font-size:clamp(1rem,1.25vw,1.28rem)">這是關於「怎麼活」的三問。</p></div>
+    <div class="card"><h3 style="color:var(--color-accent-deep)">康德的四個問題</h3>
+      <p style="margin-bottom:.2em">我能知道什麼／我應當做什麼／我可以希望什麼——以及<b>「人是什麼」</b>。</p>
+      <p class="muted cap" style="font-size:clamp(1rem,1.25vw,1.28rem)">兩組問題精神相通，但<b>不是同一組</b>，不宜互相代換。</p></div>
+  </div>
+  <p style="max-width:none;margin-top:.5em;background:rgba(134,38,51,.07);border-radius:10px;padding:.55em .9em"><b>還有：「我是誰」不是人生三問之一。</b>「我是誰／人是什麼」正是<b>人學探索本身的提問</b>，是三問共同的地基。</p>
+</section>
+
+<!-- ===================== 貳　人為何探索人自己 ===================== -->
+<section class="slide section-divider">
+  <div class="num">貳</div>
+  <h1>人，為何要探索<br>「人」自己？</h1>
+  <p class="when">在拆解「人是什麼」之前，先問一個更前面的問題：我們為什麼會想追問自己？</p>
+</section>
+
+<section class="slide roomy">
+  <h2>人，為何追求知識？</h2>
+  <div class="grid2" style="flex:none;gap:2.6vw;margin-top:.2em">
+    <div class="card"><h3>為了生存與發展</h3><p style="max-width:none">知識讓我們活得下去、活得更好——這是知識最直接、最實用的一面。</p></div>
+    <div class="card"><h3>為了探索真理</h3><p style="max-width:none">但人不只為了用而求知。我們會為了「想知道」本身而追問，哪怕它一點也不「有用」。</p></div>
+  </div>
+  <p class="lead" style="max-width:none;margin-top:.6em">而在所有追問之中，最深的一個，是<b>對自己的追問</b>：那個正在求知的「我」，究竟是什麼？</p>
+</section>
+
+<section class="slide">
+  <h2>其實，所有學科都有「人學」意涵</h2>
+  <p class="lead" style="max-width:none">你不會馬上想到——但仔細看，每一門學問，最終都在說著關於「人」的某一件事。</p>
+  <div class="disc-cloud" id="discCloud">
+    <span class="chip core" style="left:50%;top:47%">關於「人」的一切</span>
+    <span class="chip" style="left:16%;top:20%">生物醫學</span>
+    <span class="chip" style="left:40%;top:14%">心理學</span>
+    <span class="chip" style="left:66%;top:16%">社會學</span>
+    <span class="chip" style="left:86%;top:24%">史學</span>
+    <span class="chip" style="left:12%;top:44%">腦神經科學</span>
+    <span class="chip" style="left:88%;top:50%">政治學</span>
+    <span class="chip" style="left:15%;top:70%">建築與交通</span>
+    <span class="chip" style="left:38%;top:82%">語言與文化</span>
+    <span class="chip" style="left:62%;top:84%">藝術與美學</span>
+    <span class="chip" style="left:85%;top:74%">都市發展</span>
+    <span class="chip" style="left:30%;top:60%">空間與地理</span>
+    <span class="chip" style="left:72%;top:62%">人類學</span>
+  </div>
+  <p class="src">從最切身的醫學心理，到最遙遠的天文學、以「人類」為名的人類學——都藏著對人的理解。</p>
+</section>
+
+<section class="slide">
+  <h2>連最遙遠的一張照片，都在問「人是什麼」</h2>
+  <div class="cosmos" id="cosmos">
+    <div class="beam"></div>
+    <div class="dot"></div>
+    <div class="dotlab cap">那一點，就是地球</div>
+    <blockquote class="cq" style="border:none;background:none;padding:0;margin:0;color:#eadfff">「再看那個小點。那就是這裡，那就是家，那就是我們。<br>每一個你愛過的人、每一個你認識的人……都在這粒懸浮於陽光中的塵埃上。」</blockquote>
+  </div>
+  <p class="src">卡爾・薩根（Carl Sagan）論航海家一號自 60 億公里外回望地球所攝之〈黯淡藍點〉（Pale Blue Dot, 1990）。連天文學，最後也把我們帶回這個問題：在這粒塵埃上的人，是什麼？</p>
+</section>
+
+<!-- ===================== 參　人學是什麼 ===================== -->
+<section class="slide section-divider">
+  <div class="num">參</div>
+  <h1>人學，是什麼？</h1>
+  <p class="when">要探索人，第一個難題不是答案，而是——這麼多面向，該從哪裡開始？</p>
+</section>
+
+<section class="slide roomy">
+  <h2>人學，像一幅拼圖</h2>
+  <p class="lead" style="max-width:none">但它<b>不是</b>那種一眼能看穿、幾十片就拼完的簡單拼圖。</p>
+  <p style="max-width:none">它是<b>複雜版的拼圖</b>——面向繁多、彼此糾纏，甚至比你想像中最難的那幅還要複雜。身體、心理、靈性、關係、時間、文化、歷史……每一片都真實，卻沒有一片能單獨代表整張圖。</p>
+  <blockquote style="max-width:none">剪不斷，理還亂——這麼多面向，我們到底該<b>從哪裡開始探索起</b>？</blockquote>
+</section>
+
+<section class="slide">
+  <h2>先給人學一個定義</h2>
+  <div class="defbox">人學，就是探討<b>人是什麼</b>、有怎樣的<b>共通性與獨特性</b>，又具怎樣的<b>關係性、脈絡性與時間性</b>的一門，<b>探索人自身</b>的學問。</div>
+  <p class="lead" style="max-width:none;margin-top:.6em">請注意：這個定義本身，就<b>很有哲學性</b>。它問的不是某個器官、某段行為，而是「人之為人」的整體。</p>
+</section>
+
+<section class="slide roomy">
+  <h2>所以，人學注定是「哲學人學」</h2>
+  <p class="lead" style="max-width:none">正因為它追問的是人的<b>整體與意義</b>，而不是某一片局部——這使得人學<b>注定成為哲學人學</b>。</p>
+  <ul class="fl" style="margin-top:.1em">
+    <li>它<b>不等於個別科學</b>：神經科學、心理學、經濟學各說對了一片，但沒有一門能拼出整張圖。</li>
+    <li>它也<b>不等於人類學</b>：人類學是其中一片重要的拼圖，卻不是整幅拼圖本身。</li>
+  </ul>
+  <p class="muted" style="max-width:none">哲學人學的工作，是<b>跨學科、跨立場、跨宗教</b>地把各片整合起來，看見完整的人。</p>
+</section>
+
+<section class="slide">
+  <h2>那，人類學又是什麼？</h2>
+  <div class="grid2" style="flex:none;gap:2.4vw;align-items:start;margin-top:.1em">
+    <div>
+      <h3 style="color:var(--color-primary);margin:.1em 0 .2em">它的身世</h3>
+      <p style="max-width:none">誕生於西方殖民時期，以「原始社會」為研究對象，探索人類的起源、生物體質，以及多元的文化與語言。</p>
+      <p class="muted" style="max-width:none;font-size:clamp(1.5rem,1.55vw,1.55rem)">一個自我嘲諷：它原本該研究「完整的人」，但 19 世紀各「高級」學科把領域瓜分殆盡，最後只剩「原始社會」沒人認領，便由人類學認領——以致常被誤認為只是考古學。</p>
+    </div>
+    <div>
+      <h3 style="color:var(--color-primary);margin:.1em 0 .2em">它給人學的啟示</h3>
+      <blockquote style="max-width:none;margin-top:0">同中有異，異中有同。</blockquote>
+      <ul class="fl" style="margin-top:.1em">
+        <li>人與人之間<b>差異極大</b>——甚至比猴子與猴子之間的差異還大。</li>
+        <li>但我們仍能<b>相互理解與溝通</b>，因為我們有<b>共同的人性</b>。</li>
+        <li>結論：人既有<b>共通的人性</b>，又有獨特的個性、社會性、文化性與歷史性。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 肆　人的完整圖像 ===================== -->
+<section class="slide section-divider">
+  <div class="num">肆</div>
+  <h1>人的完整圖像：<br>四個向度</h1>
+  <p class="when">拼圖太亂，我們需要一個框架。孫效智提出以「結構、關係、過程、脈絡」四個向度，把人看全。</p>
+</section>
+
+<section class="slide">
+  <h2>人的四維向度</h2>
+  <p class="lead" style="max-width:none">要把「人」看全，可以沿著四個向度展開——它們像四個提問角度，缺一不可。</p>
+  <div class="dim4">
+    <div class="card"><div class="k">結構</div><h3>人自身的構成</h3><p>身、心、靈、我——人是由什麼組成的？</p></div>
+    <div class="card"><div class="k">關係</div><h3>人在關係中</h3><p>自己、他者、社會、自然、超越界。</p></div>
+    <div class="card"><div class="k">過程</div><h3>時間中的人</h3><p>生、老、病、死；成、住、壞、空。</p></div>
+    <div class="card"><div class="k">脈絡</div><h3>人的生活環境</h3><p>家庭、職場、城市、國家；語言、文化、政治、社會、歷史。</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>完整人學的三向度：彼此交疊</h2>
+  <div class="grid2" style="align-items:center;gap:2.6vw">
+    <div class="relwrap">
+      <svg viewBox="0 0 360 340" style="width:100%;height:auto;max-height:70vh" xmlns="http://www.w3.org/2000/svg" aria-label="結構、關係、過程三個交疊的圓">
+        <circle cx="180" cy="120" r="105" fill="rgba(134,38,51,.28)" stroke="#862633" stroke-width="2.5"/>
+        <circle cx="120" cy="220" r="105" fill="rgba(168,120,46,.28)" stroke="#A8782E" stroke-width="2.5"/>
+        <circle cx="240" cy="220" r="105" fill="rgba(30,95,116,.26)" stroke="#1E5F74" stroke-width="2.5"/>
+        <text x="180" y="72" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="27" fill="#5C1A23">結構</text>
+        <text x="86" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="27" fill="#6b4a1c">關係</text>
+        <text x="274" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="27" fill="#164a5c">過程</text>
+        <text x="180" y="200" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="20" fill="#3d1016">完整的人</text>
+      </svg>
+    </div>
+    <div>
+      <p class="lead" style="max-width:none">結構、關係、過程——這三個向度不是分開的欄位，而是<b>同一個人</b>的三種看法，彼此交疊。</p>
+      <p style="max-width:none">看一個人的「結構」（身心靈），一定牽動他的「關係」；他的關係，又在「時間過程」中不斷變化。三者交會處，才是<b>活生生、完整的人</b>。</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>向度一 · 人的結構：身、心、靈</h2>
+  <div class="grid3" style="flex:none;margin-top:.3em">
+    <div class="card"><h3>身</h3><p>肉身化的存在——我們透過身體感知世界、與世界相遇；不是「機器裡的幽靈」，身與心本就交織。</p></div>
+    <div class="card"><h3>心</h3><p>理性與感性、思考與情感、意志與渴望——那個會判斷、會愛、會掙扎的內在世界。</p></div>
+    <div class="card"><h3>靈</h3><p>統整身心、指向意義與超越的主體性——那個追問「我為何存在」、朝向圓滿的「我」。</p></div>
+  </div>
+  <p class="muted" style="text-align:center;max-width:none;margin-top:.8em">你們在哲學人學裡辯過的身心關係、在靈性修養裡體驗過的覺察主體——都在這一個向度裡交會。</p>
+</section>
+
+<section class="slide">
+  <h2>向度二 · 人的關係性</h2>
+  <div class="grid2" style="align-items:center;gap:2.6vw">
+    <div class="relwrap">
+      <svg viewBox="0 0 340 340" style="height:40vh;width:auto;max-width:100%" xmlns="http://www.w3.org/2000/svg" aria-label="由內而外的五重關係同心圓">
+        <circle cx="170" cy="170" r="160" fill="none" stroke="#1E5F74" stroke-width="2" opacity=".55"/>
+        <circle cx="170" cy="170" r="126" fill="none" stroke="#3E7D5A" stroke-width="2" opacity=".55"/>
+        <circle cx="170" cy="170" r="92" fill="none" stroke="#A8782E" stroke-width="2" opacity=".6"/>
+        <circle cx="170" cy="170" r="58" fill="rgba(134,38,51,.14)" stroke="#862633" stroke-width="2"/>
+        <circle cx="170" cy="170" r="26" fill="#862633"/>
+        <text x="170" y="176" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="20" fill="#fff">我</text>
+        <text x="170" y="128" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="16" fill="#6b4a1c">他人</text>
+        <text x="170" y="94" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="16" fill="#2f6b4c">社會</text>
+        <text x="170" y="60" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="16" fill="#164a5c">自然</text>
+        <text x="170" y="26" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="16" fill="#5C1A23">超越界</text>
+      </svg>
+    </div>
+    <div>
+      <p class="lead" style="max-width:none">人，總在關係中成為自己——從最內的核心，一圈圈往外：</p>
+      <ul class="fl" style="margin-top:.2em">
+        <li style="padding:.32em 0 .32em 1.6em"><b>與自己</b>（身心靈的內在整合）</li>
+        <li style="padding:.32em 0 .32em 1.6em"><b>與他人</b>（由親而疏）</li>
+        <li style="padding:.32em 0 .32em 1.6em"><b>與社會</b>、<b>與自然</b></li>
+        <li style="padding:.32em 0 .32em 1.6em"><b>與超越界</b>（有信仰者）</li>
+      </ul>
+      <p class="muted" style="max-width:none;margin-top:.4em">關係，正是照見自己的那面鏡子。</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>向度三 · 人的過程性：在時間中的人</h2>
+  <p class="lead" style="max-width:none">人不是靜止的照片，而是一段<b>展開中的旅程</b>。同一個人，在不同階段有不同的樣貌與課題。</p>
+  <div class="proc-row">
+    <div class="proc-col"><h3>生命四階段</h3><div class="stg"><span>兒少</span><span>青壯</span><span>中老</span><span>晚年</span></div></div>
+    <div class="proc-col"><h3>生活四範疇</h3><div class="stg"><span>就學</span><span>就業</span><span>就醫</span><span>就養</span></div></div>
+  </div>
+  <blockquote style="max-width:none;margin-top:.7em">生、老、病、死；成、住、壞、空——時間，是人學無法迴避的一維。</blockquote>
+</section>
+
+<section class="slide">
+  <h2>向度四 · 人的生存脈絡</h2>
+  <p class="lead" style="max-width:none">同一個人，放進不同的脈絡，會活成不同的樣子。脈絡，是理解一個人不可略過的背景。</p>
+  <div class="grid2" style="flex:none;gap:2.6vw;margin-top:.1em">
+    <div class="card"><h3>具體的生活場域</h3><p style="max-width:none">家庭、職場、環境、城市、國家——人始終「置身」於某個處境之中。</p></div>
+    <div class="card"><h3>無形的文化座標</h3><p style="max-width:none">語言、文化、政治、社會、歷史——它們在我們出生前就已就位，塑造我們如何看世界。</p></div>
+  </div>
+  <p class="muted" style="max-width:none;margin-top:.3em">結構、關係、過程、脈絡——四個向度合起來，才足以描繪一個完整、不能被拆開來算的人。</p>
+</section>
+
+<!-- ===================== 伍　回到人生大哉問 ===================== -->
+<section class="slide section-divider">
+  <div class="num">伍</div>
+  <h1>回到人生大哉問</h1>
+  <p class="when">走過四個向度，我們回到起點的那個命題——人學，最終要服務的，是人生。</p>
+</section>
+
+<section class="slide">
+  <h2>從人學，回到人生大哉問</h2>
+  <blockquote style="max-width:none;font-size:clamp(1.9rem,3vw,2.7rem)">人，生於天地宇宙之間，所為何來？</blockquote>
+  <p class="big-q" style="max-width:none;margin-top:.3em">人，是一種<b>向死的存在</b>。<br><span style="color:var(--color-accent-deep)">活是偶然，死卻必然。</span></p>
+  <p style="max-width:none;margin-top:.2em">正因為有限、正因為會結束，「這一生所為何來」才成為每個人都躲不掉的大哉問——這，就把我們接回了人生三問。</p>
+</section>
+
+<section class="slide roomy">
+  <h2>所以，人學是這五把鑰匙的地基</h2>
+  <p class="lead" style="max-width:none">生命教育五個核心內涵，就是<b>幸福人生的五把鑰匙</b>；人學探索，是它們共同的地基：</p>
+  <ul class="fl" style="margin-top:.1em">
+    <li><b>終極關懷</b>（為何而活）——要問意義，先得知道「是誰」在問。</li>
+    <li><b>價值思辨</b>（該怎樣活）——價值排序，奠基於對人性的理解。</li>
+    <li><b>靈性修養</b>（如何活出）——修養的，正是那個「身心靈的我」。</li>
+    <li><b>哲學思考</b>（方法）——人學的整合，本身就是哲學思考的工夫。</li>
+    <li><b>人學探索</b>（基礎）——前四者共同站立的<b>地基</b>。</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>這也正是高中課綱的期待</h2>
+  <p class="lead" style="max-width:none;margin-bottom:.15em">你們未來要教的「生命教育科」，把「人學探索」寫進了學習重點：</p>
+  <table class="tbl" style="margin-top:0">
+    <thead><tr><th style="width:24%">項目</th><th>學習表現／學習內容</th></tr></thead>
+    <tbody>
+      <tr><td class="lv">整體素養<br><span class="cap" style="font-weight:400;font-size:.8em">生2-V-1</span></td><td>具備跨領域全人人學的素養，並以之為基礎，進行人生三問的探索。</td></tr>
+      <tr><td class="lv">人的特質<br>與人性觀<br><span class="cap" style="font-weight:400;font-size:.8em">生Ba-V-1</span></td><td>整合不同學科對人的理解，探討人的各面向——身心、理性與感性、精神與靈性、自由與命定、有限與無限等。</td></tr>
+      <tr><td class="lv">主體性<br>與自我觀<br><span class="cap" style="font-weight:400;font-size:.8em">生Bb-V-1／2</span></td><td>瞭解人不只是「客體」，更是「主體」；追問「我是誰」——我與我的身心、理性、感性、靈性的關係。</td></tr>
+    </tbody>
+  </table>
+  <p class="src">十二年國教生命教育科課綱 B 類「人學探索」學習重點（生2-V-1、生Ba-V-1、生Bb-V-1、生Bb-V-2）。</p>
+</section>
+
+<!-- 結語 -->
+<section class="slide closing">
+  <div class="ending-line">你是一個<br>不能被拆開來算的整體</div>
+  <div class="ending-ornament"></div>
+  <div class="ending-sub">懂人，幫我們懂人生；追問人生，又回頭讓我們更懂人。<br>人學探索與人生三問，始終相互為用——這，就是這一週所有課題共同的地基。</div>
+  <div class="signature">單元五 · 人學探索</div>
+  <button class="back-home-btn kicker" onclick="goToSlide(1)">↑　回到首頁</button>
+</section>
+
+</div>
+
+<div class="click-zones" id="clickZones">
+  <div class="click-zone" onclick="prevSlide()" title="前一頁"></div>
+  <div class="click-zone" onclick="nextSlide()" title="下一頁"></div>
+</div>
+<div class="progress-bar" id="progress"></div>
+<div class="page-indicator"><span id="curr">1</span> / <span id="total">1</span></div>
+<div class="nav-arrows"><button onclick="prevSlide()" aria-label="上一頁">‹</button><button onclick="nextSlide()" aria-label="下一頁">›</button></div>
+<button class="fs-toggle" onclick="toggleFullscreen()" title="全螢幕（F）">⛶</button>
+<div class="toast" id="toast"></div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let current=1;const total=slides.length;
+document.getElementById('total').textContent=total;
+slides.forEach(s=>{const fw=document.createElement('div');fw.className='fitwrap';while(s.firstChild)fw.appendChild(s.firstChild);s.appendChild(fw);});
+function fitSlide(s){
+  const fw=s.firstElementChild;if(!fw||!fw.classList.contains('fitwrap'))return;
+  fw.style.transform='none';
+  const cs=getComputedStyle(s);
+  const availW=s.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  const availH=s.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+  const ph=fw.style.height,pj=fw.style.justifyContent;
+  fw.style.height='auto';fw.style.justifyContent='flex-start';
+  const natH=fw.scrollHeight,natW=fw.scrollWidth;
+  fw.style.height=ph;fw.style.justifyContent=pj;
+  let k=Math.min(1,availH/natH,availW/natW);
+  k=Math.floor(k*995)/1000;
+  fw.style.transform=k<1?'scale('+k+')':'';
+}
+function fitAll(){slides.forEach(fitSlide);}
+window.addEventListener('resize',fitAll);
+window.addEventListener('orientationchange',()=>setTimeout(fitAll,80));
+document.addEventListener('fullscreenchange',()=>setTimeout(fitAll,80));
+window.addEventListener('load',()=>setTimeout(fitAll,60));
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);
+fitAll();
+(function assignSectionTints(){
+  const numerals=['壹','貳','參','肆','伍','陸'];
+  let chap=0;
+  slides.forEach(s=>{
+    if(s.classList.contains('section-divider')){chap++;return;}
+    if(s.classList.contains('cover')||s.classList.contains('closing'))return;
+    if(chap<1)return;
+    const sec=Math.min(chap,6);
+    s.classList.add('sec-tint','sec-'+sec);
+    s.dataset.chap=numerals[sec-1];
+  });
+})();
+const noClickZoneSlides=[];
+slides.forEach((s,i)=>{if(s.classList.contains('cover')||s.classList.contains('closing')||s.querySelector('iframe,video,.cover-cta,.back-home-btn,.qr-box,.gbox'))noClickZoneSlides.push(i+1);});
+function showSlide(n){
+  if(n<1)n=1;if(n>total)n=total;
+  slides.forEach((s,i)=>{s.classList.remove('active','prev');if(i+1===n)s.classList.add('active');else if(i+1<n)s.classList.add('prev');});
+  current=n;
+  document.getElementById('curr').textContent=current;
+  document.getElementById('progress').style.width=(current/total*100)+'%';
+  history.replaceState(null,'','#'+current);
+  document.body.classList.toggle('no-clickzones',noClickZoneSlides.includes(n));
+}
+function nextSlide(){showSlide(current+1)}function prevSlide(){showSlide(current-1)}function goToSlide(n){showSlide(n)}
+function getFsReq(el){return el.requestFullscreen||el.webkitRequestFullscreen||el.mozRequestFullScreen||el.msRequestFullscreen||null}
+function getFsExit(){return document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen||document.msExitFullscreen||null}
+function isFs(){return document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement}
+function enterFs(el){const r=getFsReq(el);if(!r){showToast('此瀏覽器不支援全螢幕，請按 F11',4000);return Promise.reject()}let p;try{p=r.call(el)}catch(e){return Promise.reject(e)}return(p&&p.then)?p:Promise.resolve()}
+function toggleFullscreen(){if(isFs()){const x=getFsExit();if(x)x.call(document);return}enterFs(document.documentElement).catch(()=>{showToast(window.self!==window.top?'預覽面板內無法全螢幕，請在新分頁開啟':'無法進入全螢幕，請按 F11',4500)})}
+function startPresentation(){toggleFullscreen()} // 封面大鈕＝純全螢幕toggle，絕不翻頁（教授2026-07-03鐵則）
+function showToast(m,ms=2500){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),ms)}
+document.addEventListener('keydown',e=>{
+  if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();nextSlide();}
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prevSlide()}
+  if(e.key==='f'||e.key==='F'){e.preventDefault();toggleFullscreen()}
+  if(e.key==='Escape'&&isFs())(getFsExit()||(()=>{})).call(document);
+  if(e.key==='Home')goToSlide(1);if(e.key==='End')goToSlide(total);
+});
+if(location.hash){const n=parseInt(location.hash.slice(1));if(!isNaN(n))showSlide(n);}
+else{document.body.classList.toggle('no-clickzones',noClickZoneSlides.includes(1));}
+</script>
+
+<!-- ===================== 單元五 課前作業·六組印證 Firebase 即時投稿 ===================== -->
+<script>
+window.U5=(function(){
+  var ROOM=window.FB_ROOM||'default';
+  var esc=function(s){return String(s||'').replace(/[&<>]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[m];});};
+  var BASE=location.origin+location.pathname.replace(/[^/]*$/,'');
+  var SUBMIT=BASE+'submit.html';
+  var configured=function(){return window.FB_CONFIG&&FB_CONFIG.apiKey&&FB_CONFIG.apiKey.indexOf('PASTE')<0;};
+  var listify=function(o){return o?Object.keys(o).sort(function(a,b){return (o[a].t||0)-(o[b].t||0);}).map(function(k){return o[k].txt;}):[];};
+  var root=null, online=false;
+  var TOP={1:[],2:[],3:[],4:[],5:[],6:[]};
+  var LK='u5_'+ROOM;
+  function loadLocal(){try{var d=JSON.parse(localStorage.getItem(LK));if(d&&d.TOP)TOP=d.TOP;}catch(e){}}
+  function saveLocal(){try{localStorage.setItem(LK,JSON.stringify({TOP:TOP}));}catch(e){}}
+  function renderTop(g){
+    var box=document.getElementById('pg'+g); if(!box)return;
+    var a=TOP[g]||[];
+    box.innerHTML=a.length?a.map(function(t){return '<div class="gitem">'+esc(t)+'</div>';}).join('')
+      :'<div class="empty-hint">掃 QR 把你們這一組印證「相互為用」的要點打上來，這裡會即時出現。</div>';
+  }
+  function initFB(){
+    if(!configured()||typeof firebase==='undefined')return false;
+    try{
+      firebase.initializeApp(window.FB_CONFIG);
+      root=firebase.database().ref('rooms/'+ROOM);
+      [1,2,3,4,5,6].forEach(function(g){root.child('topics/g'+g).on('value',function(s){TOP[g]=listify(s.val()||{});renderTop(g);});});
+      online=true; setStatus();
+      return true;
+    }catch(e){return false;}
+  }
+  function makeQRs(){
+    if(typeof QRCode==='undefined')return;
+    document.querySelectorAll('.qr-box[data-tp]').forEach(function(b){var g=b.getAttribute('data-tp');b.innerHTML='';try{new QRCode(b,{text:SUBMIT+'?r=topics&g='+g,width:300,height:300,correctLevel:QRCode.CorrectLevel.M});}catch(e){}});
+  }
+  function setStatus(){var t=root?(online?'● 線上（手機投稿即時更新）':'● 連線中…'):'○ 單機模式（未連網）';var el=document.getElementById('fbStatus');if(el)el.textContent=t;}
+  function clearCurrent(){
+    var active=document.querySelector('.slide.active'); if(!active)return;
+    var pg=active.querySelector('.gbox[id^="pg"]');
+    if(pg){var g=pg.id.replace('pg','');if(root){root.child('topics/g'+g).remove();}else{TOP[g]=[];saveLocal();renderTop(g);}showToast('已清空第'+g+'組',1800);return;}
+    showToast('此頁沒有可清空的互動資料',2200);
+  }
+  function nowStamp(){var d=new Date(),p=function(n){return (n<10?'0':'')+n;};return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'_'+p(d.getHours())+p(d.getMinutes());}
+  function csvCell(s){return '"'+String(s==null?'':s).replace(/"/g,'""')+'"';}
+  function downloadCSV(stamp){
+    var rows=[['房號','區段','內容']];
+    [1,2,3,4,5,6].forEach(function(g){(TOP[g]||[]).forEach(function(t){rows.push([ROOM,'第'+g+'組印證',t]);});});
+    var csv=rows.map(function(r){return r.map(csvCell).join(',');}).join('\r\n');
+    var blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download='單元五人學探索_'+ROOM+'_'+stamp+'.csv';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url);},1500);
+  }
+  function exportAndClear(){
+    var stamp=nowStamp();
+    downloadCSV(stamp);
+    if(!confirm('本場資料已下載成 CSV（存在這台電腦的「下載」資料夾）。要現在把本場全部清空、房間掃乾淨嗎？')){showToast('已下載備份，未清空',2500);return;}
+    if(root){
+      root.once('value').then(function(snap){
+        var val=snap.val(),fin=function(){root.remove();showToast('已下載 CSV＋雲端封存，並清空本場',3000);};
+        if(val){firebase.database().ref('rooms/_archives/'+ROOM+'__'+stamp).set(val).then(fin,fin);}else fin();
+      });
+    }else{TOP={1:[],2:[],3:[],4:[],5:[],6:[]};saveLocal();[1,2,3,4,5,6].forEach(function(g){renderTop(g);});showToast('已下載 CSV 並清空本場（本機）',3000);}
+  }
+  function initAll(){
+    document.addEventListener('keydown',function(e){if(!e.shiftKey)return;if(e.key==='C'||e.key==='c'){e.preventDefault();clearCurrent();}else if(e.key==='E'||e.key==='e'){e.preventDefault();exportAndClear();}});
+    if(!initFB())loadLocal();
+    [1,2,3,4,5,6].forEach(function(g){renderTop(g);});
+    makeQRs(); setStatus();
+  }
+  if(document.readyState!=='loading')initAll();else document.addEventListener('DOMContentLoaded',initAll);
+  return {};
+})();
+</script>
+
+<!-- 星點裝飾（Pale Blue Dot 頁背景繁星） -->
+<script>
+(function(){
+  var c=document.getElementById('cosmos');if(!c)return;
+  for(var i=0;i<70;i++){var s=document.createElement('span');s.className='star';s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*100)+'%';s.style.opacity=(0.25+Math.random()*0.6);var sz=(Math.random()<0.2?2.5:1.4);s.style.width=sz+'px';s.style.height=sz+'px';c.insertBefore(s,c.firstChild);}
+})();
+</script>
+</body>
+</html>
