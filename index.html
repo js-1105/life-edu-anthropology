@@ -141,9 +141,11 @@ body.no-clickzones .click-zones{display:none}
 .qw{background:linear-gradient(120deg,rgba(255,255,255,.9),rgba(255,255,255,.66));border:1px solid var(--color-line);border-left:6px solid var(--color-accent);border-radius:14px;box-shadow:var(--shadow-soft);padding:.7em 1.1em;font-family:var(--font-serif);font-size:clamp(1.2rem,1.75vw,1.62rem);line-height:1.55;color:#3d2f18}
 .qw .by{display:block;font-family:var(--font-sans);font-style:normal;font-size:.8em;color:var(--color-muted);margin-top:.2em}
 /* 學科星群（所有學科都有人學意涵） */
-.disc-cloud{position:relative;width:100%;flex:1;min-height:52vh;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 46%,#2a1a3e 0%,#1b1030 42%,#0c0720 100%);box-shadow:var(--shadow-strong)}
-.disc-cloud .chip{position:absolute;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:700;color:#f3e6c8;background:rgba(212,175,55,.10);border:1px solid rgba(212,175,55,.4);border-radius:999px;padding:.3em .85em;white-space:nowrap;box-shadow:0 0 18px rgba(212,175,55,.12)}
-.disc-cloud .core{background:var(--grad-accent);color:#3d1016;border:none;font-weight:900;padding:.5em 1.2em;box-shadow:0 0 32px rgba(212,175,55,.6)}
+.disc-cloud{position:relative;width:100%;flex:1;min-height:52vh;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 46%,#fff 0%,#FBF3E4 55%,#F6E9D2 100%);box-shadow:var(--shadow-strong)}
+.disc-cloud svg.links{position:absolute;inset:0;width:100%;height:100%}
+.disc-cloud svg.links line{stroke:var(--color-accent-deep);stroke-width:1.4;opacity:.55}
+.disc-cloud .chip{position:absolute;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:700;color:var(--color-primary-dark);background:#fff;border:1.5px solid var(--color-accent);border-radius:999px;padding:.3em .85em;white-space:nowrap;box-shadow:0 3px 12px rgba(134,38,51,.14)}
+.disc-cloud .core{background:var(--grad-accent);color:#fff;border:none;font-weight:900;padding:.5em 1.2em;box-shadow:0 4px 20px rgba(168,120,46,.45)}
 /* Pale Blue Dot 宇宙頁 */
 .cosmos{position:relative;width:100%;flex:1;min-height:56vh;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,#1a1030 0%,#0b0720 55%,#05030f 100%);box-shadow:var(--shadow-strong)}
 .cosmos .beam{position:absolute;top:-8%;left:64%;width:34%;height:120%;background:linear-gradient(180deg,rgba(220,180,120,.22),rgba(220,180,120,0));transform:rotate(14deg);filter:blur(6px)}
@@ -258,23 +260,23 @@ body.no-clickzones .click-zones{display:none}
 <section class="slide gpage" style="--c:#5C1A23"><h2><span class="g-dot"></span>第5組 · 相互為用的印證</h2><div class="gbox" id="pg5"></div></section>
 <section class="slide gpage" style="--c:#3E7D5A"><h2><span class="g-dot"></span>第6組 · 相互為用的印證</h2><div class="gbox" id="pg6"></div></section>
 
-<!-- 學員精華摘錄 -->
+<!-- 學員精華摘錄（一） -->
 <section class="slide">
   <h2>你們寫得很好——幾段我特別想分享</h2>
   <p class="lead" style="max-width:none">課前的作業裡有許多深刻的印證。這些話，其實已經自己走到了今天的主題：</p>
-  <div class="quote-wall">
-    <div class="qw">「唯有當我們越深入理解人的本質、人性的特徵，才能對人生方向與生命意義有更清楚的答案；反過來，在持續思索人生三問時，我們也會一次又一次回到『我是誰』與『人究竟是什麼』的追問。」<span class="by byline">——01號鄭同學｜這正是「相互為用」：懂人，幫我懂人生；追問人生，又回頭讓我更懂人。</span></div>
-    <div class="qw">「從自然科學的角度看，人似乎只是一堆細胞與 DNA 的組合；但人不僅僅是生物，更是一個具有自我反省意識、能為自身行為負責的『位格』主體。」<span class="by byline">——27號陳同學｜人不是各部分的相加；整體，從來不等於部分的總和。</span></div>
-    <div class="qw">「人，無法在一次回答中被定義，而是在一生持續的追問與實踐中，逐漸成為自己。」<span class="by byline">——48號袁同學｜這也正是康德對「人是什麼」最深的解答。</span></div>
+  <div class="quote-wall" style="margin-top:1.2em">
+    <div class="qw" style="font-size:clamp(1.4rem,1.9vw,1.8rem);padding:.95em 1.3em">「唯有當我們越深入理解人的本質、人性的特徵，才能對人生方向與生命意義有更清楚的答案；反過來，在持續思索人生三問時，我們也會一次又一次回到『我是誰』與『人究竟是什麼』的追問。」<span class="by byline" style="font-size:.62em;margin-top:.5em">——01號鄭同學｜這正是「相互為用」：懂人，幫我懂人生；追問人生，又回頭讓我更懂人。</span></div>
+    <div class="qw" style="font-size:clamp(1.4rem,1.9vw,1.8rem);padding:.95em 1.3em">「從自然科學的角度看，人似乎只是一堆細胞與 DNA 的組合；但人不僅僅是生物，更是一個具有自我反省意識、能為自身行為負責的『位格』主體。」<span class="by byline" style="font-size:.62em;margin-top:.5em">——27號陳同學｜人不是各部分的相加；整體，從來不等於部分的總和。</span></div>
   </div>
 </section>
 
-<!-- 加碼一句：雙向印證的具體示範 -->
+<!-- 學員精華摘錄（二）：雙向印證的具體示範 -->
 <section class="slide">
-  <h2>還有這一段，特別值得一提</h2>
-  <p class="lead" style="max-width:none">因為它把「雙向」寫得很具體——不是抽象口號，而是真實發生的相互印證：</p>
-  <div class="quote-wall" style="margin-top:1.4em">
-    <div class="qw" style="font-size:clamp(1.7rem,2.5vw,2.3rem);padding:1.3em 1.6em">「因為親自去實踐了『不逃避受苦』的生命抉擇，我才真正懂了『人學概論』裡談的：<br><b>人在苦難中能展現出更高的主體性。</b>」<span class="by byline" style="font-size:.62em;margin-top:.5em">——27號陳同學｜答覆人生課題，反過來加深了人學的探索——這正是「雙向」最具體的樣子。</span></div>
+  <h2>還有這兩段，特別值得一提</h2>
+  <p class="lead" style="max-width:none">因為它們把「雙向」寫得很具體——不是抽象口號，而是真實發生的相互印證：</p>
+  <div class="quote-wall" style="margin-top:1.2em">
+    <div class="qw" style="font-size:clamp(1.4rem,1.9vw,1.8rem);padding:.95em 1.3em">「因為親自去實踐了『不逃避受苦』的生命抉擇，我才真正懂了『人學概論』裡談的：人在苦難中能展現出更高的主體性。」<span class="by byline" style="font-size:.62em;margin-top:.5em">——27號陳同學｜答覆人生課題，反過來加深了人學的探索——這正是「雙向」最具體的樣子。</span></div>
+    <div class="qw" style="font-size:clamp(1.4rem,1.9vw,1.8rem);padding:.95em 1.3em">「人，無法在一次回答中被定義，而是在一生持續的追問與實踐中，逐漸成為自己。」<span class="by byline" style="font-size:.62em;margin-top:.5em">——48號袁同學｜這也正是康德對「人是什麼」最深的解答。</span></div>
   </div>
 </section>
 
@@ -325,6 +327,20 @@ body.no-clickzones .click-zones{display:none}
   <h2>其實，所有學科都有「人學」意涵</h2>
   <p class="lead" style="max-width:none">你不會馬上想到——但仔細看，每一門學問，最終都在說著關於「人」的某一件事。</p>
   <div class="disc-cloud" id="discCloud">
+    <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <line x1="50" y1="47" x2="16" y2="20"/>
+      <line x1="50" y1="47" x2="40" y2="14"/>
+      <line x1="50" y1="47" x2="66" y2="16"/>
+      <line x1="50" y1="47" x2="86" y2="24"/>
+      <line x1="50" y1="47" x2="12" y2="44"/>
+      <line x1="50" y1="47" x2="88" y2="50"/>
+      <line x1="50" y1="47" x2="15" y2="70"/>
+      <line x1="50" y1="47" x2="38" y2="82"/>
+      <line x1="50" y1="47" x2="62" y2="84"/>
+      <line x1="50" y1="47" x2="85" y2="74"/>
+      <line x1="50" y1="47" x2="30" y2="60"/>
+      <line x1="50" y1="47" x2="72" y2="62"/>
+    </svg>
     <span class="chip core" style="left:50%;top:47%">關於「人」的一切</span>
     <span class="chip" style="left:16%;top:20%">生物醫學</span>
     <span class="chip" style="left:40%;top:14%">心理學</span>
