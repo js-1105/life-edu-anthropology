@@ -154,14 +154,8 @@ body.no-clickzones .click-zones{display:none}
 .context-frame--sm svg{max-width:100%}
 .life6{display:flex;gap:1vw;justify-content:center;flex-wrap:wrap;margin-top:.2em}
 .life6 .dot{width:3.1em;height:3.1em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:900;font-size:1.15rem;color:#fff;box-shadow:var(--shadow-soft);flex:none}
-.dim4frame{position:relative;width:100%;max-width:660px;margin:0 auto}
-.dim4frame svg{width:100%;height:auto;display:block}
-.dim4-ctx{position:absolute;left:50%;top:14.5%;transform:translate(-50%,-50%);background:#fff;border:2px dashed #5B8CAA;border-radius:999px;padding:.13em .75em;font-family:var(--font-serif);font-weight:900;font-size:1.55rem;color:#2C6F8E;white-space:nowrap}
-.dim4-box{position:absolute;transform:translate(-50%,-50%);background:#fff;border-radius:14px;padding:.16em .85em .22em;font-family:var(--font-serif);font-weight:900;font-size:2.1rem;white-space:nowrap;box-shadow:var(--shadow-soft);text-align:center;width:max-content;max-width:300px}
-.dim4-boxsub{font-family:var(--font-sans);font-weight:700;font-size:1.65rem;line-height:1.22;white-space:normal;margin-top:.2em;color:var(--color-text)}
-.dim4-label{position:absolute;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:900;font-size:1.7rem;color:#6B3FA0}
-.dim4-ring{position:absolute;transform:translate(-50%,-50%);background:#fff;border:2px solid #5B8CAA;border-radius:10px;padding:.2em .55em;font-weight:800;font-size:1.5rem;color:#2C6F8E;white-space:nowrap;box-shadow:var(--shadow-soft)}
 .dim4-legend{display:flex;flex-direction:column;gap:.5em;margin-top:1em;max-width:660px;margin-left:auto;margin-right:auto}
+.dim4-legend-row{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:2.2em;row-gap:.4em;margin-top:.5em;max-width:1300px}
 .dim4-legend .row{display:flex;align-items:center;gap:.7em}
 .dim4-legend .dot{width:1.3em;height:1.3em;border-radius:50%;flex:none}
 .dim4-legend .txt{font-size:1.55rem;color:var(--color-text)}
@@ -531,39 +525,15 @@ body.no-clickzones .click-zones{display:none}
 
 <section class="slide">
   <h2>完整人學的四向度框架</h2>
-  <div style="display:flex;align-items:center;gap:2.2vw;flex:1;width:100%">
-    <div class="dim4frame" style="flex:0 1 auto;max-width:565px">
-      <svg viewBox="0 0 850 850" width="850" height="850" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="結構關係過程三向度置於脈絡之中，構成完整人學四向度框架">
-        <circle cx="425" cy="425" r="378" fill="#E4EEF6" stroke="#5B8CAA" stroke-width="3" stroke-dasharray="11 8"/>
-        <circle cx="425" cy="425" r="250" fill="#fff"/>
-        <path d="M425,425 L208.5,300 A250,250 0 0,1 641.5,300 Z" fill="#EAD2B8"/>
-        <path d="M425,425 L641.5,300 A250,250 0 0,1 425,675 Z" fill="#B7D4E4"/>
-        <path d="M425,425 L425,675 A250,250 0 0,1 208.5,300 Z" fill="#C3DFCC"/>
-        <circle cx="425" cy="425" r="80" fill="#fff" stroke="#6B3FA0" stroke-width="3"/>
-        <circle cx="425" cy="388" r="15" fill="#6B3FA0"/>
-        <rect x="403" y="408" width="44" height="40" rx="14" fill="#6B3FA0"/>
-      </svg>
-      <div class="dim4-label" style="left:50%;top:65.5%;font-size:1.5rem">人</div>
-      <div class="dim4-ctx" style="left:50%;top:11.5%">脈絡 Context</div>
-      <div class="dim4-box" style="left:50%;top:33%;border:3px solid #A8672E;color:#A8672E">結構<div class="dim4-boxsub">身・心・靈・我</div></div>
-      <div class="dim4-box" style="left:79%;top:71%;border:3px solid #2C6F8E;color:#2C6F8E">關係<div class="dim4-boxsub">自己・他者・社會<br>自然・超越界</div></div>
-      <div class="dim4-box" style="left:21%;top:71%;border:3px solid #3E7D5A;color:#3E7D5A">過程<div class="dim4-boxsub">生・老・病・死<br>成・住・壞・空</div></div>
-      <div class="dim4-ring" style="left:50%;top:1%">家庭・職場・環境</div>
-      <div class="dim4-ring" style="left:86%;top:14%">城市・國家</div>
-      <div class="dim4-ring" style="left:99%;top:50%">語言・文化</div>
-      <div class="dim4-ring" style="left:88%;top:91%">政治・社會</div>
-      <div class="dim4-ring" style="left:50%;top:99%">歷史・傳統</div>
-      <div class="dim4-ring" style="left:12%;top:91%">宗教・世界觀</div>
-      <div class="dim4-ring" style="left:1%;top:50%">自然・宇宙</div>
-      <div class="dim4-ring" style="left:14%;top:14%">時代・制度</div>
-    </div>
-    <div class="dim4-legend" style="flex:1 1 auto;max-width:none;margin:0">
-      <div class="row"><div class="dot" style="background:#6B3FA0"></div><div class="txt"><b>核心：</b>人（Human Being）</div></div>
-      <div class="row"><div class="dot" style="background:#A8672E"></div><div class="txt"><b>結構向度：</b>人的構成（身・心・靈・我）</div></div>
-      <div class="row"><div class="dot" style="background:#2C6F8E"></div><div class="txt"><b>關係向度：</b>人的連結（自己・他者・社會・自然・超越界）</div></div>
-      <div class="row"><div class="dot" style="background:#3E7D5A"></div><div class="txt"><b>過程向度：</b>人的時間性（生老病死・成住壞空）</div></div>
-      <div class="row"><div class="dot" style="background:#5B8CAA"></div><div class="txt"><b>脈絡向度：</b>人的生存場域（家庭・文化・社會・歷史・自然）</div></div>
-    </div>
+  <div class="relwrap" style="flex:0 1 auto;width:100%">
+    <img src="images/anthro_diagram_only.png" width="2560" height="1280" alt="結構、關係、過程三向度置於脈絡之中，構成完整人學四向度框架，中心為人" style="width:100%;height:auto;max-height:53vh;object-fit:contain">
+  </div>
+  <div class="dim4-legend dim4-legend-row">
+    <div class="row"><div class="dot" style="background:#6B3FA0"></div><div class="txt"><b>核心：</b>人（Human Being）</div></div>
+    <div class="row"><div class="dot" style="background:#A8672E"></div><div class="txt"><b>結構向度：</b>人的構成（身・心・靈・我）</div></div>
+    <div class="row"><div class="dot" style="background:#2C6F8E"></div><div class="txt"><b>關係向度：</b>人的連結（自己・他者・社會・自然・超越界）</div></div>
+    <div class="row"><div class="dot" style="background:#3E7D5A"></div><div class="txt"><b>過程向度：</b>人的時間性（生老病死・成住壞空）</div></div>
+    <div class="row"><div class="dot" style="background:#5B8CAA"></div><div class="txt"><b>脈絡向度：</b>人的生存場域（家庭・文化・社會・歷史・自然）</div></div>
   </div>
 </section>
 
