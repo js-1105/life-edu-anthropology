@@ -186,6 +186,30 @@ body.no-clickzones .click-zones{display:none}
 .proc-col h3{margin:0 0 .3em;color:var(--color-primary);font-size:clamp(1.3rem,1.8vw,1.75rem)}
 .proc-col .stg{display:flex;flex-wrap:wrap;gap:.5em;margin-top:.2em}
 .proc-col .stg span{background:rgba(134,38,51,.08);border:1px solid rgba(134,38,51,.18);border-radius:999px;padding:.28em .85em;font-weight:700;color:var(--color-primary);font-size:clamp(1.05rem,1.45vw,1.45rem)}
+/* 整週收束儀式頁（沿用單元一酒紅金彩蛋視覺） */
+.lyrics{font-family:var(--font-serif);font-size:clamp(1.3rem,2.05vw,1.65rem);line-height:1.42;color:#4a3b1e;column-count:2;column-gap:3em;max-width:66em;margin:0 auto;text-align:center}
+.lyrics p{font-size:clamp(1.3rem,2.05vw,1.65rem);break-inside:avoid;margin-bottom:.3em;max-width:none;text-align:center}
+.lyrics .h{color:var(--color-primary);font-weight:700;font-style:normal;letter-spacing:.05em}
+.slide.eggsong{background:var(--grad-royal) !important}
+.slide.eggsong::after{content:none !important}
+.eggsong h2{color:#fff;border-bottom-color:var(--color-accent);font-size:clamp(1.9rem,3.4vw,2.9rem)}
+.eggsong .lyrics{color:#f4e9d8}
+.eggsong .lyrics .h{color:var(--color-accent-soft)}
+.eggsong .src{color:rgba(255,255,255,.72)}
+.eggsong .egg-echo{color:var(--color-accent-soft);font-family:var(--font-serif);font-size:clamp(1.35rem,1.85vw,1.6rem);text-align:center;letter-spacing:.06em;margin:-.2em auto .9em;max-width:42em;line-height:1.6}
+.eggsong h2,.eggsong .lyrics,.eggsong .src,.eggsong .egg-echo,.eggsong .back-home-btn,.eggsong .egg-player{position:relative;z-index:2}
+.eggsong h2{margin-bottom:.5em}
+.eggsong .egg-player{margin-top:1.6em}
+.eggsong .back-home-btn{margin-top:1.2em}
+.eggsong .back-home-btn{align-self:center;padding:1em 2.4em;font-size:1.05rem;font-weight:700}
+.eggsong .egg-deco{position:absolute;z-index:0;pointer-events:none;opacity:.62}
+.eggsong .egg-deco-tr{top:8vh;right:5vw;width:clamp(95px,9vw,150px)}
+.eggsong .egg-deco-bl{bottom:10vh;left:4.5vw;width:clamp(75px,7.5vw,120px)}
+.egg-player{display:flex;align-items:center;gap:1em;margin:3.2em auto 0;width:100%;max-width:44em;background:rgba(0,0,0,.28);border:1px solid rgba(212,175,55,.45);border-radius:999px;padding:.5em .6em .5em 1.4em}
+.egg-play{flex:none;width:2.5em;height:2.5em;border-radius:50%;background:var(--color-accent);color:#2A1418;border:none;font-size:1.05rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.egg-play:hover{filter:brightness(1.08)}
+.egg-seek{flex:1;accent-color:var(--color-accent);cursor:pointer}
+.egg-time{flex:none;font-variant-numeric:tabular-nums;font-size:.85rem;color:rgba(255,255,255,.85);min-width:5.4em;text-align:right;padding-right:.3em}
 </style>
 <script src="fbconfig.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -586,6 +610,36 @@ body.no-clickzones .click-zones{display:none}
   <button class="back-home-btn kicker" onclick="goToSlide(1)">↑　回到首頁</button>
 </section>
 
+<!-- ===================== 整週收束儀式 ===================== -->
+<section class="slide eggsong">
+  <svg class="egg-deco egg-deco-tr" viewBox="0 0 140 140" aria-hidden="true">
+    <g stroke="#C9A227" stroke-width="6" fill="none" stroke-linecap="round"><path d="M46 104 V40"/><path d="M104 92 V28"/></g>
+    <path d="M44 40 L106 28" stroke="#C9A227" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <ellipse cx="38" cy="106" rx="14" ry="10" fill="#C9A227" transform="rotate(-20 38 106)"/>
+    <ellipse cx="96" cy="94" rx="14" ry="10" fill="#C9A227" transform="rotate(-20 96 94)"/>
+  </svg>
+  <svg class="egg-deco egg-deco-bl" viewBox="0 0 120 140" aria-hidden="true">
+    <path d="M56 104 V36 q0 -18 24 -24" stroke="#C9A227" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <ellipse cx="44" cy="106" rx="14" ry="10" fill="#C9A227" transform="rotate(-20 44 106)"/>
+    <circle cx="96" cy="20" r="6" fill="#D4AF37"/><circle cx="18" cy="58" r="4" fill="#D4AF37"/><circle cx="104" cy="58" r="3.5" fill="#D4AF37"/>
+  </svg>
+  <h2>人生無常，唯愛永恆</h2>
+  <p class="egg-echo">整週的最後，那首歌，如約再次響起——從第一個清晨的提問，走到此刻。</p>
+  <div class="lyrics">
+    <p><span class="h">〔主歌〕</span><br>天還沒亮　我就開始往前走<br>從沒問過　這條路通向哪個盡頭<br>有人問我　你要去哪裡<br>我才驚覺　我從沒問過　為什麼</p>
+    <p><span class="h">〔導歌〕</span><br>高更在畫布角落　顫抖地寫下<br>我們從何處來　我們是誰　又將往哪裡去<br>有人說　以終為始——先看見遠方那盞燈<br>於是我學著　把終點　放進每一個起點</p>
+    <p><span class="h">〔副歌〕</span><br>為何而活　為何而活<br>在每個天微亮的清晨　輕輕問自己<br>該怎麼活　該怎麼活<br>在每個十字路口　誠實地選一條路<br>如何活出　如何活出<br>讓我說過的話　和我走過的路　慢慢合而為一</p>
+    <p><span class="h">〔尾聲｜漸弱〕</span><br>為何活……該怎麼活……如何活出……<br>這，就是我的人生三問</p>
+  </div>
+  <audio id="eggAudio" src="media/theme_song.m4a" preload="metadata"></audio>
+  <div class="egg-player">
+    <button class="egg-play" onclick="eggTogglePlay()" aria-label="播放／暫停">▶</button>
+    <input type="range" class="egg-seek" min="0" max="1000" value="0" oninput="eggSeek(this.value)" aria-label="播放進度">
+    <span class="egg-time cap">0:00 / 0:00</span>
+  </div>
+  <button class="back-home-btn" onclick="goToSlide(1)">↑　回到首頁</button>
+</section>
+
 </div>
 
 <div class="click-zones" id="clickZones">
@@ -640,6 +694,7 @@ const noClickZoneSlides=[];
 slides.forEach((s,i)=>{if(s.classList.contains('cover')||s.classList.contains('closing')||s.querySelector('iframe,video,.cover-cta,.back-home-btn,.qr-box,.gbox'))noClickZoneSlides.push(i+1);});
 function showSlide(n){
   if(n<1)n=1;if(n>total)n=total;
+  if(n!==total)eggPause();
   slides.forEach((s,i)=>{s.classList.remove('active','prev');if(i+1===n)s.classList.add('active');else if(i+1<n)s.classList.add('prev');});
   current=n;
   document.getElementById('curr').textContent=current;
@@ -647,6 +702,29 @@ function showSlide(n){
   history.replaceState(null,'','#'+current);
   document.body.classList.toggle('no-clickzones',noClickZoneSlides.includes(n));
 }
+// 整週收束頁·主題曲播放器（純<audio>，不彈出外部播放器），時間軸/播放鈕即時更新
+function eggFmt(t){t=Math.floor(t||0);var m=Math.floor(t/60),s=t%60;return m+':'+(s<10?'0':'')+s;}
+function eggPause(){var a=document.getElementById('eggAudio');if(a&&!a.paused){a.pause();}var b=document.querySelector('.egg-play');if(b)b.textContent='▶';}
+function eggTogglePlay(){
+  var a=document.getElementById('eggAudio');if(!a)return;
+  var b=document.querySelector('.egg-play');
+  if(a.paused){a.play();if(b)b.textContent='⏸';}else{a.pause();if(b)b.textContent='▶';}
+}
+function eggSeek(v){var a=document.getElementById('eggAudio');if(!a||!a.duration)return;a.currentTime=(v/1000)*a.duration;}
+(function(){
+  var a=document.getElementById('eggAudio');if(!a)return;
+  a.addEventListener('timeupdate',function(){
+    var seek=document.querySelector('.egg-seek'),t=document.querySelector('.egg-time');
+    if(a.duration&&seek)seek.value=Math.round((a.currentTime/a.duration)*1000);
+    if(t)t.textContent=eggFmt(a.currentTime)+' / '+eggFmt(a.duration);
+  });
+  a.addEventListener('loadedmetadata',function(){
+    var t=document.querySelector('.egg-time');if(t)t.textContent='0:00 / '+eggFmt(a.duration);
+  });
+  a.addEventListener('ended',function(){var b=document.querySelector('.egg-play');if(b)b.textContent='▶';});
+  var seekEl=document.querySelector('.egg-seek');
+  if(seekEl)seekEl.addEventListener('keydown',function(e){if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.stopPropagation();});
+})();
 function nextSlide(){showSlide(current+1)}function prevSlide(){showSlide(current-1)}function goToSlide(n){showSlide(n)}
 function getFsReq(el){return el.requestFullscreen||el.webkitRequestFullscreen||el.mozRequestFullScreen||el.msRequestFullscreen||null}
 function getFsExit(){return document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen||document.msExitFullscreen||null}
