@@ -150,6 +150,10 @@ body.no-clickzones .click-zones{display:none}
 .context-frame{position:relative;width:100%;flex:1;min-height:48vh;display:flex;align-items:center;justify-content:center;background:var(--color-bg);border:3px dashed var(--color-accent-deep);border-radius:22px;padding:3vh 2vw;margin-top:1vh}
 .context-frame img{max-width:56%;max-height:100%;object-fit:contain}
 .context-label{position:absolute;top:-.9em;left:2.4em;background:var(--color-accent-deep);color:#fff;font-family:var(--font-serif);font-weight:900;font-size:clamp(1.3rem,1.8vw,1.9rem);padding:.25em .9em;border-radius:999px;box-shadow:var(--shadow-soft)}
+.context-frame--sm{min-height:0;flex:none;padding:2.4vh 1.4vw;margin-top:.6em}
+.context-frame--sm svg{max-width:100%}
+.life6{display:flex;gap:1vw;justify-content:center;flex-wrap:wrap;margin-top:.2em}
+.life6 .dot{width:3.1em;height:3.1em;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:900;font-size:1.15rem;color:#fff;box-shadow:var(--shadow-soft);flex:none}
 .disc-cloud .core{background:var(--grad-accent);color:#fff;border:none;font-weight:900;padding:.5em 1.2em;box-shadow:0 4px 20px rgba(168,120,46,.45)}
 /* Pale Blue Dot 宇宙頁 */
 .cosmos{position:relative;width:100%;flex:1;min-height:56vh;border-radius:18px;overflow:hidden;background:linear-gradient(120deg,#1a1030 0%,#0b0720 55%,#05030f 100%);box-shadow:var(--shadow-strong)}
@@ -481,17 +485,45 @@ body.no-clickzones .click-zones{display:none}
 
 <section class="slide">
   <h2>身心靈，是「結構」向度的具體展開</h2>
-  <div class="relwrap" style="text-align:center">
-    <img src="images/dim-structure-detail.png" width="643" height="301" alt="身心靈圓餅圖，並標示其在結構、關係、過程三向度圖中的位置" style="width:auto;max-width:88%;max-height:60vh;object-fit:contain">
+  <div class="grid2" style="align-items:center;gap:2.4vw">
+    <div class="relwrap" style="text-align:center">
+      <div style="position:relative;width:100%;max-width:380px;margin:0 auto">
+        <svg viewBox="0 0 300 300" width="300" height="300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="身心靈圓餅圖">
+          <path d="M150,150 L150,10 A140,140 0 0,1 271,220 Z" fill="#A8782E"/>
+          <path d="M150,150 L271,220 A140,140 0 0,1 29,220 Z" fill="#1E5F74"/>
+          <path d="M150,150 L29,220 A140,140 0 0,1 150,10 Z" fill="#862633"/>
+          <circle cx="150" cy="150" r="42" fill="#3d1016"/>
+          <circle cx="150" cy="128" r="8" fill="#fff"/>
+          <rect x="142" y="138" width="16" height="28" rx="6" fill="#fff"/>
+          <rect x="144" y="166" width="5" height="16" rx="2" fill="#fff"/>
+          <rect x="151" y="166" width="5" height="16" rx="2" fill="#fff"/>
+        </svg>
+        <div style="position:absolute;left:74.7%;top:35%;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:900;font-size:1.8rem;color:#fff">心</div>
+        <div style="position:absolute;left:50%;top:79%;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:900;font-size:1.8rem;color:#fff">靈</div>
+        <div style="position:absolute;left:25.3%;top:35%;transform:translate(-50%,-50%);font-family:var(--font-serif);font-weight:900;font-size:1.8rem;color:#fff">身</div>
+      </div>
+    </div>
+    <div class="context-frame context-frame--sm">
+      <div class="context-label">脈絡</div>
+      <svg viewBox="0 0 360 340" width="360" height="340" style="width:100%;max-width:280px;height:auto" xmlns="http://www.w3.org/2000/svg" aria-label="結構、關係、過程三個交疊的圓，結構為其中一環">
+        <circle cx="180" cy="120" r="105" fill="rgba(134,38,51,.28)" stroke="#862633" stroke-width="3"/>
+        <circle cx="120" cy="220" r="105" fill="rgba(168,120,46,.28)" stroke="#A8782E" stroke-width="3"/>
+        <circle cx="240" cy="220" r="105" fill="rgba(30,95,116,.26)" stroke="#1E5F74" stroke-width="3"/>
+        <text x="180" y="72" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="30" fill="#862633">結構</text>
+        <text x="86" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="30" fill="#A8782E">關係</text>
+        <text x="274" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="30" fill="#1E5F74">過程</text>
+        <text x="180" y="200" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="22" fill="#3d1016">完整的人</text>
+      </svg>
+    </div>
   </div>
   <p class="muted" style="text-align:center;max-width:none;margin-top:.6em">身、心、靈統整起來，就是「結構」向度所要問的：人自身是由什麼組成的。</p>
 </section>
 
 <section class="slide">
   <h2>向度二 · 人的關係性</h2>
-  <div class="grid2" style="align-items:center;gap:2.6vw">
-    <div class="relwrap">
-      <svg viewBox="0 0 340 340" style="height:40vh;width:auto;max-width:100%" xmlns="http://www.w3.org/2000/svg" aria-label="由內而外的五重關係同心圓">
+  <div class="grid2" style="align-items:center;gap:2.2vw">
+    <div class="relwrap" style="flex-direction:column;gap:.15em">
+      <svg viewBox="0 0 340 340" width="340" height="340" style="height:33vh;width:auto;max-width:100%" xmlns="http://www.w3.org/2000/svg" aria-label="由內而外的五重關係同心圓">
         <circle cx="170" cy="170" r="160" fill="none" stroke="#1E5F74" stroke-width="2" opacity=".55"/>
         <circle cx="170" cy="170" r="126" fill="none" stroke="#3E7D5A" stroke-width="2" opacity=".55"/>
         <circle cx="170" cy="170" r="92" fill="none" stroke="#A8782E" stroke-width="2" opacity=".6"/>
@@ -503,6 +535,22 @@ body.no-clickzones .click-zones{display:none}
         <text x="170" y="60" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="16" fill="#164a5c">自然</text>
         <text x="170" y="26" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="16" fill="#5C1A23">超越界</text>
       </svg>
+      <svg viewBox="0 0 40 70" width="40" height="70" style="width:20px;height:34px" xmlns="http://www.w3.org/2000/svg" aria-label="箭頭指向關係五圈圖">
+        <line x1="20" y1="65" x2="20" y2="14" stroke="#A8782E" stroke-width="5" stroke-linecap="round"/>
+        <path d="M8,24 L20,3 L32,24 Z" fill="#A8782E"/>
+      </svg>
+      <div class="context-frame context-frame--sm" style="padding:1.2vh .9vw;margin-top:.2em">
+        <div class="context-label">脈絡</div>
+        <svg viewBox="0 0 360 340" width="360" height="340" style="width:100%;max-width:140px;height:auto" xmlns="http://www.w3.org/2000/svg" aria-label="結構、關係、過程三個交疊的圓，關係為其中一環">
+          <circle cx="180" cy="120" r="105" fill="rgba(134,38,51,.28)" stroke="#862633" stroke-width="3"/>
+          <circle cx="120" cy="220" r="105" fill="rgba(168,120,46,.28)" stroke="#A8782E" stroke-width="3"/>
+          <circle cx="240" cy="220" r="105" fill="rgba(30,95,116,.26)" stroke="#1E5F74" stroke-width="3"/>
+          <text x="180" y="72" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="30" fill="#862633">結構</text>
+          <text x="86" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="30" fill="#A8782E">關係</text>
+          <text x="274" y="248" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="900" font-size="30" fill="#1E5F74">過程</text>
+          <text x="180" y="200" text-anchor="middle" font-family="Noto Serif TC,serif" font-weight="700" font-size="22" fill="#3d1016">完整的人</text>
+        </svg>
+      </div>
     </div>
     <div>
       <p class="lead" style="max-width:none">人，總在關係中成為自己——從最內的核心，一圈圈往外：</p>
@@ -518,29 +566,22 @@ body.no-clickzones .click-zones{display:none}
 </section>
 
 <section class="slide">
-  <h2>五重關係，是「關係」向度的完整圖像</h2>
-  <div class="relwrap" style="text-align:center">
-    <img src="images/dim-relations-detail.png" width="603" height="290" alt="人與自己、他人、社會、自然、超越界的五重關係，並標示其在三向度圖中的位置" style="width:auto;max-width:92%;max-height:60vh;object-fit:contain">
-  </div>
-  <p class="muted" style="text-align:center;max-width:none;margin-top:.6em">從自己到超越界，這五重關係合起來，就是「關係」向度所要問的：人在關係中如何成為自己。</p>
-</section>
-
-<section class="slide">
   <h2>向度三 · 人的過程性：在時間中的人</h2>
-  <p class="lead" style="max-width:none">人不是靜止的照片，而是一段<b>展開中的旅程</b>。同一個人，在不同階段有不同的樣貌與課題。</p>
+  <p class="lead" style="max-width:none">人不是靜止的照片，而是一段<b>展開中的旅程</b>。同一個人，在不同階段、不同面向，都有不同的樣貌與課題。</p>
   <div class="proc-row">
     <div class="proc-col"><h3>生命四階段</h3><div class="stg"><span>兒少</span><span>青壯</span><span>中老</span><span>晚年</span></div></div>
     <div class="proc-col"><h3>生活四範疇</h3><div class="stg"><span>就學</span><span>就業</span><span>就醫</span><span>就養</span></div></div>
   </div>
-  <blockquote style="max-width:none;margin-top:.7em">生、老、病、死；成、住、壞、空——時間，是人學無法迴避的一維。</blockquote>
-</section>
-
-<section class="slide">
-  <h2>生命階段與生活六面向，是「過程」向度的展開</h2>
-  <div class="relwrap" style="text-align:center">
-    <img src="images/dim-process-detail.png" width="681" height="353" alt="生命四階段、生活四範疇與人生六面向食衣住行育樂，並標示其在三向度圖中的位置" style="width:auto;max-width:94%;max-height:60vh;object-fit:contain">
+  <h3 style="margin-top:.4em;margin-bottom:.15em;color:var(--color-primary)">人生六面向</h3>
+  <div class="life6" style="margin-top:.2em">
+    <div class="dot" style="background:#C9A063">食</div>
+    <div class="dot" style="background:#5B9AA0">衣</div>
+    <div class="dot" style="background:#3E7D5A">住</div>
+    <div class="dot" style="background:#4A6FA5">行</div>
+    <div class="dot" style="background:#A8782E">育</div>
+    <div class="dot" style="background:#B0413E">樂</div>
   </div>
-  <p class="muted" style="text-align:center;max-width:none;margin-top:.6em">從兒少到晚年，從食衣住行到育樂——這就是「過程」向度所要問的：人在時間中如何展開。</p>
+  <blockquote style="max-width:none;margin-top:.35em">生、老、病、死；成、住、壞、空——時間，是人學無法迴避的一維。</blockquote>
 </section>
 
 <section class="slide">
