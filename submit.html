@@ -48,9 +48,9 @@ button.send:active{transform:translateY(1px);opacity:.9}
 <div class="flash" id="flash"></div>
 <script>
 (function(){
-  var GROUPS={1:'#862633',2:'#A8782E',3:'#1E5F74',4:'#6B5635',5:'#5C1A23',6:'#3E7D5A'};
+  var GROUPS={1:'#862633',2:'#A8782E',3:'#1E5F74',4:'#6B5635',5:'#5C1A23',6:'#3E7D5A',7:'#4A3B6B',8:'#B15C2E'};
   var p=new URLSearchParams(location.search);
-  var g=(p.get('g')||'1').replace(/[^1-6]/g,'')||'1';
+  var g=(p.get('g')||'1').replace(/[^1-8]/g,'')||'1';
   var round=(p.get('r')||'topics').replace(/[^a-z]/g,'')||'topics';
   var C=GROUPS[g]||'#862633';
   document.documentElement.style.setProperty('--c',C);
