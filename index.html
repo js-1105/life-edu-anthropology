@@ -692,12 +692,16 @@ function showConfirm({title='確認',message='',okText='確定',cancelText='取�
 <div class="progress-bar" id="progress"></div>
 <div class="page-indicator"><span id="curr">1</span> / <span id="total">1</span></div>
 <div class="nav-arrows"><button onclick="prevSlide()" aria-label="上一頁">‹</button><button onclick="nextSlide()" aria-label="下一頁">›</button></div>
-<button class="fs-toggle" onclick="toggleFullscreen()" title="全螢幕（F）">⛶</button>
+<button class="fs-toggle" onclick="toggleFullscreen()" title="全螢幕（F）"><svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M21 16v3a2 2 0 0 1-2 2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
 <div class="toast" id="toast"></div>
 
 <script>
 const slides=document.querySelectorAll('.slide');
 let current=1;const total=slides.length;
+const FS_ICON_EXPAND='<svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M21 16v3a2 2 0 0 1-2 2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/></svg>';
+const FS_ICON_COMPRESS='<svg viewBox="0 0 24 24" width="1.05em" height="1.05em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>';
+window.FS_ICON_EXPAND=FS_ICON_EXPAND;window.FS_ICON_COMPRESS=FS_ICON_COMPRESS;
+function updateFsIcon(){const b=document.querySelector('.fs-toggle');if(b)b.innerHTML=isFs()?FS_ICON_COMPRESS:FS_ICON_EXPAND;}
 document.getElementById('total').textContent=total;
 slides.forEach(s=>{const fw=document.createElement('div');fw.className='fitwrap';while(s.firstChild)fw.appendChild(s.firstChild);s.appendChild(fw);});
 function fitSlide(s){
@@ -718,7 +722,7 @@ function fitSlide(s){
 function fitAll(){slides.forEach(fitSlide);}
 window.addEventListener('resize',fitAll);
 window.addEventListener('orientationchange',()=>setTimeout(fitAll,80));
-document.addEventListener('fullscreenchange',()=>setTimeout(fitAll,80));
+document.addEventListener('fullscreenchange',()=>{setTimeout(fitAll,80);updateFsIcon();});
 window.addEventListener('load',()=>setTimeout(fitAll,60));
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);
 fitAll();
